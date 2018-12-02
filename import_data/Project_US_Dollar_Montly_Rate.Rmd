@@ -48,11 +48,9 @@ US_Dollar_Montly_Rate<- raw_data
 print(US_Dollar_Montly_Rate,width=Inf)
 ```
 
-
-
-
-
 ```{r pressure, echo=FALSE}
-saveRDS(US_Dollar_Montly_Rate, file = "US_Dollar_Montly_Rate")
+saveRDS(US_Dollar_Montly_Rate, file = "US_Dollar_Montly_Rate.rds")
+
 ```
+
 
