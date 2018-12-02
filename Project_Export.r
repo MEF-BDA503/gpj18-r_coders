@@ -132,9 +132,6 @@ exp_data_v2 <- exp_data %>%
 tail(exp_data_v2)
 
 
-library(tidyr)
-gather(exp_data_v2, year, value, `2001`:`2003`) ## Note the backticks
-
 exp_data_v3 <-
   exp_data_v2 %>%
   gather(key=Month,value=Amount,-Year,-Sector_Type_Code,-Sector_Name)
@@ -160,3 +157,17 @@ exp_data_v4 <- exp_data_v3 %>% mutate(Date = lubridate::as_date(paste(Year,
 exp_data_v5 <- exp_data_v4 %>% select ( Date, Sector_Type_Code, Sector_Name, Amount)
 
 str(exp_data_v5)
+
+exp_data_v5 %>% rowwise()%>%
+  select(Amount,Date)%>% ggplot(data = ., aes(x = Date, y = Amount, 
+                                         color = Date)) + geom_line()
+
+ggplot(data = exp_data_v5, aes(x = 1:nrow(exp_data_v5), 
+                                  y = Date)) + geom_line()
+
+exp_data_v5 %>% rowwise()%>% 
+  select(Amount,Sector_Type_Code)%>% 
+  filter(!is.na(Amount) & ((Sector_Type_Code %in% "A")))%>% 
+  ggplot(data = ., aes(x = Sector_Type_Code, y = Amount, 
+  color = Sector_Type_Code)) + geom_line()
+
