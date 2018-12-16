@@ -1,13 +1,13 @@
 install.packages("readxl")
-library("readxl")
 install.packages("plyr")
 install.packages("tidyverse", repos = "https://cran.r-project.org")
 
 library(tidyverse)
 library(plyr)
 library(janitor)
+library("readxl")
 
-setwd("C:\\Users\\birikiPC\\Documents\\R")
+setwd("C:\\Users\\birikiPC\\Documents\\GitHub\\gpj18-r_coders")
 export_data <- read_excel("export_1996_2018.xls")
 #import_data <- read_excel("import_1996_2018.xls")
 
@@ -67,15 +67,50 @@ export_data_without_NA_Total(is.na(export_data_without_NA_Total[4:15]))
 exp_data <- export_data_without_NA_Total
 str(exp_data)
 
+install.packages("dplyr")
+library(dplyr)
+
+v_year <- 2017
+for (row in 1:nrow(exp_data)) {
+  year <- exp_data[row, "Year"]
+  if(!is.na(year) & year == v_year){
+    print(paste("YEAR-ROW",year))
+    print(paste("row-i",i))
+    v_year <- v_year - 1
+  }
+  exp_data[row, "Year"] <- v_year + 1
+  if (v_year==2008){
+    break
+  }
+}
+
 exp_data %>% select(Sector_Name) %>% mutate(VADiff = exp_data$January + exp_data$February) %>% filter(is.na(VADiff)) %>% distinct()
 
-test <- group_by(exp_data, Sector_Type_Code,Sector_Name)
-# To get the number of flights per day
-per_day <- summarize(daily, number_flights = n())
-per_day
+str(exp_data)
 
-exp_sectors_analyze <- exp_data %>% select(Sector_Type_Code,Sector_Name,January)%>% group_by(Sector_Type_Code,Sector_Name) %>% summarise(Count_Jan = count(January, 
-                                                                                                                                                           na.rm = T))
+test <- group_by(exp_data, Sector_Type_Code,Sector_Name)
+test
+
+# To get the number of flights per day
+per_sector <- summarize(exp_data, Sector_Name = n())
+per_sector
+
+exp_sectors_analyze <- exp_data %>% 
+  select(Sector_Type_Code,Sector_Name,January)%>% 
+  group_by(Sector_Type_Code,Sector_Name) %>% 
+  summarise(Count_Jan = count(January, na.rm = T))
+
+library(dplyr)
+exp_data_sectors <- exp_data %>% 
+  select(Sector_Name,January) %>%
+  group_by(Sector_Name) %>%
+  filter (!is.na(January))%>%
+  summarise(Sector_Count= n(), na.rm = T)
+
+exp_data_sectors
+summary(rlang::last_error())
+
+exp_sectors_analyze
 
 exp_sectors <- exp_data %>% select(Sector_Type_Code,Sector_Name)%>% distinct()
 
@@ -93,45 +128,16 @@ exp_data %>% select(January:December) %>% gather(key = Month,
                                                                                                                                                                   fill = Month)) + geom_bar(stat = "identity")	
 
 
-exp_data <- export_data_without_NA_Total
-
-i=0
-for (row in 1:nrow(exp_data)) {
-  year <- exp_data[row, "Year"]
-  if(!is.na(year) & year == 2017){
-    i = row
-    print(paste("YEAR-ROW",year))
-    print(paste("row-i",i))
-    for (x in 1:i-1){
-      print(paste("x",x))
-      exp_data[x, "Year"] <- 2018
-    }
-    break
-  }
-}
-
-exp_data <- export_data_without_NA_Total
-
-v_year <- 2017
-for (row in 1:nrow(exp_data)) {
-  year <- exp_data[row, "Year"]
-  if(!is.na(year) & year == v_year){
-    print(paste("YEAR-ROW",year))
-    print(paste("row-i",i))
-    v_year <- v_year - 1
-  }
-  exp_data[row, "Year"] <- v_year + 1
-  if (v_year==2008){
-    break
-  }
-}
-
+#Toplam kýsýmlarý silinmiþ data
 exp_data_v2 <- exp_data %>%
   slice(6:391)%>% filter(Sector_Name != "Toplam -Total")
 
 tail(exp_data_v2)
 
-
+install.packages("tidyverse")
+install.packages("dplyr")
+library("dplyr")
+library("tidyverse")
 exp_data_v3 <-
   exp_data_v2 %>%
   gather(key=Month,value=Amount,-Year,-Sector_Type_Code,-Sector_Name)
@@ -158,9 +164,36 @@ exp_data_v5 <- exp_data_v4 %>% select ( Date, Sector_Type_Code, Sector_Name, Amo
 
 str(exp_data_v5)
 
+#Make some analysis
+exp_data_min_mean_max <- summarise_each(group_by(exp_data_v5,Sector_Name),
+funs(min(.,na.rm=TRUE),
+     mean(.,na.rm=TRUE),
+     max(.,na.rm=TRUE)),
+Amount)
+
+#the same result as above
+exp_data_min_mean_max_same <- exp_data_v5 %>% 
+  group_by(Sector_Name) %>% 
+  summarise_each(funs(min(.,na.rm=TRUE), mean(.,na.rm=TRUE), max(.,na.rm=TRUE)),Amount)
+
+#round the mean values and add the sector type codes
+exp_data_min_mean_max_same <- exp_data_v5 %>% 
+  group_by(Sector_Type_Code,Sector_Name) %>% 
+  summarise_each(funs(min(.,na.rm=TRUE), round(mean(.,na.rm=TRUE),digits = 3), max(.,na.rm=TRUE)),Amount)
+
+setwd("C:\\Users\\birikiPC\\Documents\\GitHub\\gpj18-r_coders")
+library(tidyverse)
+enflasyon_data<-readRDS(file = "C:\\Users\\birikiPC\\Documents\\GitHub\\gpj18-r_coders\\Enflasyon_Data.rds")
+
+#Or load from github
+githubURL_enflasyon <- ("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/import_data/Enflasyon_Data.rds")
+download.file(githubURL_enflasyon,"Enflasyon_Data.rds", method="curl")
+enflasyon_data <- readRDS("Enflasyon_Data.rds")
+
+
 exp_data_v5 %>% rowwise()%>%
   select(Amount,Date)%>% ggplot(data = ., aes(x = Date, y = Amount, 
-                                         color = Date)) + geom_line()
+                                              color = Date)) + geom_line()
 
 ggplot(data = exp_data_v5, aes(x = 1:nrow(exp_data_v5), 
                                   y = Date)) + geom_line()
@@ -171,3 +204,19 @@ exp_data_v5 %>% rowwise()%>%
   ggplot(data = ., aes(x = Sector_Type_Code, y = Amount, 
   color = Sector_Type_Code)) + geom_line()
 
+#Add sub sector type codes
+exp_data_v5$Sub_Sector_Type_Code <- exp_data_v5$Sector_Type_Code
+
+v_Sector_Type_Code <- "A"
+for (row in 1:nrow(exp_data)) {
+  year <- exp_data[row, "Year"]
+  if(!is.na(year) & year == v_year){
+    print(paste("YEAR-ROW",year))
+    print(paste("row-i",i))
+    v_Sector_Type_Code <- v_Sector_Type_Code - 1
+  }
+  exp_data_v5[row, "Year"] <- v_year + 1
+  if (v_year==2008){
+    break
+  }
+}
