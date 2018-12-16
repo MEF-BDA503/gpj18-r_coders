@@ -119,7 +119,7 @@ str(producer_inf_data)
 
 
 #import and other variables
-imp_data_without_NA <- exp_data
+imp_data_without_NA <- imp_data
 imp_data_without_NA[is.na(imp_data_without_NA <- imp_data)] <- 0
 imp_data_without_NA
 
