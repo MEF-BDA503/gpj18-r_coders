@@ -6,7 +6,7 @@ library(tidyverse)
 library(plyr)
 library(janitor)
 library("readxl")
-library(tidyverse)
+library("tidyverse")
 
 setwd("C:\\Users\\birikiPC\\Documents\\GitHub\\gpj18-r_coders")
 export_data <- read_excel("export_1996_2018.xls")
@@ -28,7 +28,7 @@ cons_inf_data<-read_rds(tmp)
 file.remove(tmp)
 
 tmp<-tempfile(fileext=".rds")
-download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/import_data/Enflasyon_Data?raw=true",destfile=tmp,mode = 'wb')
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/import_data/Enflasyon_Data.rds?raw=true",destfile=tmp,mode = 'wb')
 enflasyon_data<-read_rds(tmp)
 file.remove(tmp)
 
@@ -39,7 +39,7 @@ colnames(import_data) <- c("Year","Sector_Type_Code","Sector_Name","Total_Amount
 
 
 export_data_without_NA <- export_data[rowSums(is.na(export_data)) != ncol(export_data),]
-import_data_without_NA <- export_data[rowSums(is.na(export_data)) != ncol(export_data),]
+import_data_without_NA <- import_data[rowSums(is.na(import_data)) != ncol(import_data),]
 
 #analyze data
 class(export_data_without_NA)
