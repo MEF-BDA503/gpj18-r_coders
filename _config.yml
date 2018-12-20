@@ -1,4 +1,4 @@
-url: "https://username.github.io"
+url: "https://mef-bda503.github.io/gpj18-r_coders/"
 baseurl: ""
 
 title: My website
@@ -10,10 +10,8 @@ description: A virtual proof that name is awesome!
 navbar-links:
   About Me: "aboutme" 
   Resources:
-    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
+    - Beautiful Jekyll: "https://mef-bda503.github.io/gpj18-r_coders/"
     - Learn markdown: "http://www.markdowntutorial.com/"
-    - GitHub Pages: "https://pages.github.com/"
-  Author's home: "http://deanattali.com"
 
 theme: jekyll-theme-minimal
 title: r_coders
@@ -61,7 +59,6 @@ excerpt_length: 50
 title-separator: "-"
 
 
-timezone: "America/Vancouver"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
