@@ -11,7 +11,6 @@
 
 ***
 ***
-***
-***
 gpj18-r_coders created by GitHub Classroom
+***
 
