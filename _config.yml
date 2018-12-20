@@ -1,5 +1,4 @@
-remote_theme: benbakter/retlab
+theme: jekyll-theme-slate
 title: r_coders
 description:FOCUS IMPORT AND EXPORT ISSUES WITH R PROJECT
 
-theme: jekyll-theme-slate
