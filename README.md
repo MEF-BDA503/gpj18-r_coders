@@ -5,8 +5,8 @@
 
 ***
 
-                                This group members are
-                #### Mercan KARACABEY, Leyla YİĞİT, Merve ÖZEN ŞAHİN, Mehmet AK, Büşra AYDEMİR
+                                                      This group members are
+                         #### Mercan KARACABEY, Leyla YİĞİT, Merve ÖZEN ŞAHİN, Mehmet AK, Büşra AYDEMİR
 
 
 ***
