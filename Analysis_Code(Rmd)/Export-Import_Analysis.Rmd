@@ -9,13 +9,6 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
 ```{r eval=FALSE}
 install.packages("readxl")
 install.packages("plyr")
@@ -127,11 +120,13 @@ per_sector
 exp_sectors_analyze <- exp_data %>% 
   select(Sector_Type_Code,Sector_Name,January)%>% 
   group_by(Sector_Type_Code,Sector_Name) %>% 
-  summarise(Count_Jan = count(January, na.rm = T))
 ```
 
-
+```{r eval=FALSE}
 library(dplyr)
+library(tidyverse)
+
+
 exp_data_sectors <- exp_data %>% 
   select(Sector_Name,January) %>%
   group_by(Sector_Name) %>%
@@ -140,9 +135,8 @@ exp_data_sectors <- exp_data %>%
 
 exp_data_sectors
 summary(rlang::last_error())
-
-exp_sectors_analyze
-
+```
+```{r eval=FALSE}
 exp_sectors <- exp_data %>% select(Sector_Type_Code,Sector_Name)%>% distinct()
 
 
@@ -152,21 +146,23 @@ exp_data %>% select(January:December) %>% gather(key = Month,
                                                                                                                               na.rm = T)) %>% ggplot(data = ., aes(x = Month, y = Total_Exp_Amount, 
                                                                                                                                                                    fill = Month)) + geom_bar(stat = "identity")	
 
+```
+```{r eval=FALSE}
 #Bar Chart - Average Export Amount in Monhts
 exp_data %>% select(January:December) %>% gather(key = Month, 
                                                  value = Exp_Amount) %>% group_by(Month) %>% summarise(Avg_Exp_Amount = mean(Exp_Amount, 
                                                                                                                              na.rm = T)) %>% ggplot(data = ., aes(x = Month, y = Avg_Exp_Amount, 
                                                                                                                                                                   fill = Month)) + geom_bar(stat = "identity")	
 
+```
 
+```{r eval=FALSE}
 #Toplam kýsýmlarý silinmiþ data
 exp_data_v2 <- exp_data %>%
   slice(6:391)%>% filter(Sector_Name != "Toplam -Total")
 
 tail(exp_data_v2)
 
-install.packages("tidyverse")
-install.packages("dplyr")
 library("dplyr")
 library("tidyverse")
 exp_data_v3 <-
@@ -195,6 +191,8 @@ exp_data_v5 <- exp_data_v4 %>% select ( Date, Sector_Type_Code, Sector_Name, Amo
 
 str(exp_data_v5)
 
+
+
 #Make some analysis
 exp_data_min_mean_max <- summarise_each(group_by(exp_data_v5,Sector_Name),
 funs(min(.,na.rm=TRUE),
@@ -211,24 +209,21 @@ exp_data_min_mean_max_same <- exp_data_v5 %>%
 exp_data_min_mean_max_same <- exp_data_v5 %>% 
   group_by(Sector_Type_Code,Sector_Name) %>% 
   summarise_each(funs(min(.,na.rm=TRUE), round(mean(.,na.rm=TRUE),digits = 3), max(.,na.rm=TRUE)),Amount)
+```
 
-setwd("C:\\Users\\birikiPC\\Documents\\GitHub\\gpj18-r_coders")
-library(tidyverse)
-enflasyon_data<-readRDS(file = "C:\\Users\\birikiPC\\Documents\\GitHub\\gpj18-r_coders\\Enflasyon_Data.rds")
 
-#Or load from github
-githubURL_enflasyon <- ("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/import_data/Enflasyon_Data.rds")
-download.file(githubURL_enflasyon,"Enflasyon_Data.rds", method="curl")
-enflasyon_data <- readRDS("Enflasyon_Data.rds")
-
+```{r eval=FALSE}
 
 exp_data_v5 %>% rowwise()%>%
   select(Amount,Date)%>% ggplot(data = ., aes(x = Date, y = Amount, 
                                               color = Date)) + geom_line()
-
+```
+```{r eval=FALSE}
 ggplot(data = exp_data_v5, aes(x = 1:nrow(exp_data_v5), 
                                   y = Date)) + geom_line()
+```
 
+```{r eval=FALSE}
 exp_data_v5 %>% rowwise()%>% 
   select(Amount,Sector_Type_Code)%>% 
   filter(!is.na(Amount) & ((Sector_Type_Code %in% "A")))%>% 
@@ -251,12 +246,5 @@ for (row in 1:nrow(exp_data)) {
     break
   }
 }
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
