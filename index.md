@@ -1,5 +1,5 @@
-#####  [Course Homepage](https://mef-bda503.github.io/)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 ***
@@ -12,13 +12,19 @@
 =======
 ***
   FOCUS IMPORT AND EXPORT ISSUES WITH R by R_CODERS 
+=======
+>>>>>>> c629790bc3c38629512bebdb60178d954b222d9e
 
-***
+
+*** 
+
+FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AND FOREIGN EXCHANGE RATES
+
+***  
 
 
 >>>>>>> 0a67af9120b9f0d8dd90530cc491d71fce2f6eda
 
-*** 
 ## PROJECT TEAM MEMBERS
 *** 
 ![Image description](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/R_developers.jpg)
@@ -67,6 +73,8 @@
 
 **RDS Data Set**
 
+**A summary of the Data and Explanations**
+
 
 
 ***
@@ -74,7 +82,7 @@
 *** 
 **RMD FILES**
 
-**ANALSIS WITH R**
+**Exploratory Data Analysis With R**
 
 
 
@@ -92,6 +100,9 @@
 
 **PROJECT PRESENTATION**
 
+**PDF of Project Report**
+
+**PDF of Project Presentation**
 
 
 ***
@@ -103,6 +114,7 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [Merve Özen Şahin]
 <<<<<<< HEAD
 ***
@@ -110,3 +122,10 @@
 >>>>>>> 4b69b63e68738e6128bc1bad6a37f324c7654b0b
 =======
 >>>>>>> 0a67af9120b9f0d8dd90530cc491d71fce2f6eda
+=======
+
+
+*[Course Homepage](https://mef-bda503.github.io/)*
+
+*[Project Documents On Githup](https://github.com/MEF-BDA503/gpj18-r_coders)*
+>>>>>>> c629790bc3c38629512bebdb60178d954b222d9e
