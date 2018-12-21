@@ -7,7 +7,7 @@
 ![alt text](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/R_developers.jpg)
 
 ### Click for R_coders Web Site: https://mef-bda503.github.io/gpj18-r_coders
->>>>>>> 4b69b63e68738e6128bc1bad6a37f324c7654b0b
+
 
 ***
 
