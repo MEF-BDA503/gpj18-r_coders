@@ -31,7 +31,7 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 ![Image description](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/R_developers.jpg)
 >>>>>>> 4b69b63e68738e6128bc1bad6a37f324c7654b0b
 
-**GITHUPS**
+**GITHUB PAGES**
 
 - [Büşra Nur Aydemir](https://mef-bda503.github.io/pj18-aydemirbusra/) - [Leyla Yiğit](https://mef-bda503.github.io/pj18-Leyla.Yigit/)
 
