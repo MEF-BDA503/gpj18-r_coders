@@ -28,11 +28,4 @@
 ## PROJECT SCOPE 
 *** 
 
-**PROJECT EXECUTIVE SUMMARY**
-
-
-**PROJECT DIAGRAMS**
-
-**REASON OF CHOOSE THE TOPIC**
-
-***
+**Project Executive Summary**
