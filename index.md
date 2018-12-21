@@ -3,10 +3,10 @@
 #####  [Course Homepage](https://mef-bda503.github.io/)
 
 
+
 *** 
 ## PROJECT TEAM MEMBERS
 *** 
-
 ![Image description](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/R_developers.jpg)
 
 **GITHUPS**
@@ -24,6 +24,8 @@
 
 - [Merve Özen Şahin](https://www.linkedin.com/in/merve-ozen-sahin-91027431/)
 
+
+
 ***
 ## PROJECT SCOPE 
 *** 
@@ -32,6 +34,8 @@
 **Project Executive Summary**
 
 **Project Analysis Diagrams**
+
+
 
 ***
 ## DATA SET 
