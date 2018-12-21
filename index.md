@@ -3,7 +3,7 @@
 
 ## PROJECT TEAM MEMBERS
 
-![alt text](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/R_developers.jpg)
+![Image description](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/R_developers.jpg)
 
 ### GITHUPS
 
