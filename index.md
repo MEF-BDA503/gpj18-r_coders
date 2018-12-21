@@ -82,7 +82,9 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 [For References Clik](Analysis_Codes_and_RMD_HTML//References_citations.html)
 
+
 **CITATIONS**
+[Thanks to Martijn Theuwissen for loops](https://www.r-bloggers.com/how-to-write-the-first-for-loop-in-r/)
 
 
 *[Course Homepage](https://mef-bda503.github.io/)*
