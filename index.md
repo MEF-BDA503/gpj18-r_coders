@@ -90,6 +90,9 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 [Thanks group four for data manupulation](https://mef-bda503.github.io/gpj18-group_four/)
 
 
+
+***
+
 *[Course Homepage](https://mef-bda503.github.io/)*
 
 *[Project Documents On Githup](https://github.com/MEF-BDA503/gpj18-r_coders)*
