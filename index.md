@@ -1,9 +1,6 @@
-***
-  FOCUS IMPORT AND EXPORT ISSUES WITH R by R_CODERS 
 
-***
-
-
+[Course Homepage](https://mef-bda503.github.io/)
+[Project Documents On Githup](https://github.com/MEF-BDA503/gpj18-r_coders)
 
 *** 
 ## PROJECT TEAM MEMBERS
