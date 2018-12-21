@@ -79,7 +79,8 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 ## REFERENCES AND CITATIONS
 *** 
 **REFERENCES**
-[For References Clik] (Analysis_Code(Rmd) and HTML/References_citations.html)
+
+[For References Clik](Analysis_Code(Rmd) and HTML/References_citations.html)
 
 **CITATIONS**
 
