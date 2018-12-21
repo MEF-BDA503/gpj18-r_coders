@@ -2,6 +2,7 @@
 #####  [Course Homepage](https://mef-bda503.github.io/)
 
 ## PROJECT TEAM MEMBERS
+![alt text](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/R_developers.jpg)
 ### GITHUPS
 
 - [Büşra Nur Aydemir]( https://www.linkedin.com/in/busra-nur-aydemir-51b81b8b/)
