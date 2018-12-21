@@ -1,5 +1,3 @@
-#####  [Course Homepage](https://mef-bda503.github.io/)
-
 ***
   FOCUS IMPORT AND EXPORT ISSUES WITH R by R_CODERS 
 
