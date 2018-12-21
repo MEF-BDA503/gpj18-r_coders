@@ -44,6 +44,8 @@ library(DT)
 
 
 ```{r SOURCE LINKS FOR HELP}
+#stackoverflow.com is used for How do I add a URL to R markdown? and many questions
+("https://stackoverflow.com/questions/29787850/how-do-i-add-a-url-to-r-markdown")
 #This page is used for Process Journal Development :
 (" https://github.com/jtleek/modules/blob/master/05_ReproducibleResearch/Markdown/index.md")
 #This page is used for GGPLOT
