@@ -32,3 +32,7 @@
 - [Merve Özen Şahin]
 
 ***
+***
+
+***
+                                                    PROJECT SCOPE
