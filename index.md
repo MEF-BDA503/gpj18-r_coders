@@ -9,7 +9,7 @@
 
 ![Image description](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/R_developers.jpg)
 
-# GITHUPS
+**GITHUPS**
 
 - [Büşra Nur Aydemir](https://mef-bda503.github.io/pj18-aydemirbusra/) - [Leyla Yiğit](https://mef-bda503.github.io/pj18-Leyla.Yigit/)
 
@@ -17,7 +17,7 @@
 
 - [Merve Özen Şahin](https://mef-bda503.github.io/pj18-ozenm/)
 
-# LINKEDIN
+** LINKEDIN**
 - [Büşra Nur Aydemir]( https://www.linkedin.com/in/busra-nur-aydemir-51b81b8b/) - [Leyla Yiğit](https://www.linkedin.com/in/leyla-yi%C4%9Fit-b3894955/)
 
 - [Mehmet Ak](https://www.linkedin.com/in/ACoAACENGXUBEHApr9slAuQzh8lBviwp1FrY3oY/)- [Mercan Karacabey](https://www.linkedin.com/in/mercan-karacabey-708240103/)
