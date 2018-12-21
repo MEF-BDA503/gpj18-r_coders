@@ -43,3 +43,21 @@
 **Excel Raw Data Set**
 
 **RDS Data Set**
+
+
+
+***
+## DATA PREPERATION AND ANALYSIS
+*** 
+**RMD FILES**
+
+**ANALSIS WITH R**
+
+
+
+***
+## DATA VISUALIZATION WITH R
+*** 
+**SHINY**
+
+
