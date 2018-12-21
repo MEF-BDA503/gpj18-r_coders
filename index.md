@@ -8,7 +8,7 @@
 
 ![Image description](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/R_developers.jpg)
 
-# GITHUPS
+## GITHUPS
 
 - [Büşra Nur Aydemir]( https://www.linkedin.com/in/busra-nur-aydemir-51b81b8b/)
 
@@ -20,7 +20,7 @@
 
 - [Merve Özen Şahin](https://www.linkedin.com/in/merve-ozen-sahin-91027431/)
 
-# LINKEDIN
+## LINKEDIN
 - [Büşra Nur Aydemir]
 
 - [Leyla Yiğit](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)
@@ -36,9 +36,9 @@
 ### PROJECT SCOPE ![Image description]
                                                     
 
-# PROJECT EXECUTIVE SUMMARY
+## PROJECT EXECUTIVE SUMMARY
 
 
-# PROJECT DIAGRAMS
+## PROJECT DIAGRAMS
 
-# REASON OF CHOOSE THE TOPIC
+## REASON OF CHOOSE THE TOPIC
