@@ -110,16 +110,10 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 **CITATIONS**
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 - [Merve Özen Şahin]
-<<<<<<< HEAD
-***
-=======
->>>>>>> 4b69b63e68738e6128bc1bad6a37f324c7654b0b
-=======
->>>>>>> 0a67af9120b9f0d8dd90530cc491d71fce2f6eda
-=======
+
+
 
 
 *[Course Homepage](https://mef-bda503.github.io/)*
