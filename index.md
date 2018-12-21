@@ -1,6 +1,7 @@
 
-[Course Homepage](https://mef-bda503.github.io/)
-[Project Documents On Githup](https://github.com/MEF-BDA503/gpj18-r_coders)
+*[Course Homepage](https://mef-bda503.github.io/)*
+
+*[Project Documents On Githup](https://github.com/MEF-BDA503/gpj18-r_coders)*
 
 
 *** 
