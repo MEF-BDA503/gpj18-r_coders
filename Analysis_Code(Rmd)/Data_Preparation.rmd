@@ -66,9 +66,9 @@ download.file(githubURL_data,"Enflasyon_Data.rds", method="curl")
 enflasyon_data <- readRDS("Enflasyon_Data.rds")
 
 
-githubURL_data <- ("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/import_data/Consumer_Inflation.rds")
+githubURL_data <- ("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Rds)/Consumer_Inflation.rds?raw=true")
 download.file(githubURL_data,"Consumer_Inflation.rds", method="curl")
-cons_inf_data <- readRDS("Consumer_Inflation.rds")
+cons_inf_data<-readRDS("Consumer_Inflation.rds")
 
 
 tmp<-tempfile(fileext=".rds")
@@ -297,4 +297,81 @@ saveRDS(exp_data_v5,file="exp_data.rds")
 #export_data_rds <- readRDS("exp_data.rds")
 saveRDS(imp_data_v5,file="imp_data.rds")
 #import_data_rds <- readRDS("imp_data.rds")
+```
+
+
+Download new rds files
+```{r eval=FALSE}
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Rds)/imp_data.rds?raw=true",destfile=tmp,mode = 'wb')
+imp_data<-read_rds(tmp)
+file.remove(tmp)
+
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Rds)/exp_data.rds?raw=true",destfile=tmp,mode = 'wb')
+exp_data<-read_rds(tmp)
+file.remove(tmp)
+```
+
+
+Data transformation
+```{r eval=FALSE}
+exp_data_without_NA <- exp_data
+exp_data_without_NA[is.na(exp_data_without_NA <- exp_data)] <- 0
+exp_data_without_NA
+
+
+imp_data_without_NA <- imp_data
+imp_data_without_NA[is.na(imp_data_without_NA <- imp_data)] <- 0
+imp_data_without_NA
+```
+
+
+Convert date column POSIXct to Date and check data types
+```{r eval=FALSE}
+str(us_rate_data)
+us_rate_data$Date <- as.Date(as.character(as.POSIXct(us_rate_data$Date)))
+str(us_rate_data)
+
+str(cons_inf_data)
+cons_inf_data$Date <- as.Date(as.character(as.POSIXct(cons_inf_data$Date)))
+str(cons_inf_data)
+```
+
+
+Join data
+```{r eval=FALSE}
+library("tidyverse")
+exp_data_v2 <-
+exp_data_without_NA %>%
+  group_by(Date) %>%
+  summarise(Export_Total_Amount=sum(Amount))
+
+imp_data_v2 <-
+  imp_data_without_NA %>%
+  group_by(Date) %>%
+  summarise(Import_Total_Amount=sum(Amount))
+
+exp_data_v3 <- inner_join(exp_data_v2,cons_inf_data, by=c("Date" = "Date"))
+
+exp_data_v4 <- inner_join(exp_data_v3,us_rate_data, by=c("Date" = "Date"))
+
+imp_data_v3 <- inner_join(imp_data_v2,cons_inf_data, by=c("Date" = "Date"))
+
+imp_data_v4 <- inner_join(imp_data_v3,us_rate_data, by=c("Date" = "Date"))
+```
+
+
+Change column names
+```{r eval=FALSE}
+colnames(exp_data_v4) <- c("Date","Export_Total_Amount","Consumer_Price_Index_Yearly_Change","Consumer_Price_Index_Monthly_Change","USD_Rate")
+
+colnames(imp_data_v4) <- c("Date","Export_Total_Amount","Consumer_Price_Index_Yearly_Change","Consumer_Price_Index_Monthly_Change","USD_Rate")
+```
+
+
+Save as RDS files
+```{r eval=FALSE}
+saveRDS(imp_data_v4,file='imp_data_final.rds')
+saveRDS(exp_data_v4,file='exp_data_final.rds')
 ```

@@ -419,9 +419,9 @@ download.file(githubURL_data,&quot;Enflasyon_Data.rds&quot;, method=&quot;curl&q
 enflasyon_data &lt;- readRDS(&quot;Enflasyon_Data.rds&quot;)
 
 
-githubURL_data &lt;- (&quot;https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/import_data/Consumer_Inflation.rds&quot;)
+githubURL_data &lt;- (&quot;https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Rds)/Consumer_Inflation.rds?raw=true&quot;)
 download.file(githubURL_data,&quot;Consumer_Inflation.rds&quot;, method=&quot;curl&quot;)
-cons_inf_data &lt;- readRDS(&quot;Consumer_Inflation.rds&quot;)
+cons_inf_data&lt;-readRDS(&quot;Consumer_Inflation.rds&quot;)
 
 
 tmp&lt;-tempfile(fileext=&quot;.rds&quot;)
@@ -569,6 +569,59 @@ str(imp_data_v5)</code></pre>
 #export_data_rds &lt;- readRDS(&quot;exp_data.rds&quot;)
 saveRDS(imp_data_v5,file=&quot;imp_data.rds&quot;)
 #import_data_rds &lt;- readRDS(&quot;imp_data.rds&quot;)</code></pre>
+<p>Download new rds files</p>
+<pre class="r"><code>tmp&lt;-tempfile(fileext=&quot;.rds&quot;)
+download.file(&quot;https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Rds)/imp_data.rds?raw=true&quot;,destfile=tmp,mode = &#39;wb&#39;)
+imp_data&lt;-read_rds(tmp)
+file.remove(tmp)
+
+tmp&lt;-tempfile(fileext=&quot;.rds&quot;)
+download.file(&quot;https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Rds)/exp_data.rds?raw=true&quot;,destfile=tmp,mode = &#39;wb&#39;)
+exp_data&lt;-read_rds(tmp)
+file.remove(tmp)</code></pre>
+<p>Data transformation</p>
+<pre class="r"><code>exp_data_without_NA &lt;- exp_data
+exp_data_without_NA[is.na(exp_data_without_NA &lt;- exp_data)] &lt;- 0
+exp_data_without_NA
+
+
+imp_data_without_NA &lt;- imp_data
+imp_data_without_NA[is.na(imp_data_without_NA &lt;- imp_data)] &lt;- 0
+imp_data_without_NA</code></pre>
+<p>Convert date column POSIXct to Date and check data types</p>
+<pre class="r"><code>str(us_rate_data)
+us_rate_data$Date &lt;- as.Date(as.character(as.POSIXct(us_rate_data$Date)))
+str(us_rate_data)
+
+str(cons_inf_data)
+cons_inf_data$Date &lt;- as.Date(as.character(as.POSIXct(cons_inf_data$Date)))
+str(cons_inf_data)</code></pre>
+<p>Join data</p>
+<pre class="r"><code>library(&quot;tidyverse&quot;)
+exp_data_v2 &lt;-
+exp_data_without_NA %&gt;%
+  group_by(Date) %&gt;%
+  summarise(Export_Total_Amount=sum(Amount))
+
+imp_data_v2 &lt;-
+  imp_data_without_NA %&gt;%
+  group_by(Date) %&gt;%
+  summarise(Import_Total_Amount=sum(Amount))
+
+exp_data_v3 &lt;- inner_join(exp_data_v2,cons_inf_data, by=c(&quot;Date&quot; = &quot;Date&quot;))
+
+exp_data_v4 &lt;- inner_join(exp_data_v3,us_rate_data, by=c(&quot;Date&quot; = &quot;Date&quot;))
+
+imp_data_v3 &lt;- inner_join(imp_data_v2,cons_inf_data, by=c(&quot;Date&quot; = &quot;Date&quot;))
+
+imp_data_v4 &lt;- inner_join(imp_data_v3,us_rate_data, by=c(&quot;Date&quot; = &quot;Date&quot;))</code></pre>
+<p>Change column names</p>
+<pre class="r"><code>colnames(exp_data_v4) &lt;- c(&quot;Date&quot;,&quot;Export_Total_Amount&quot;,&quot;Consumer_Price_Index_Yearly_Change&quot;,&quot;Consumer_Price_Index_Monthly_Change&quot;,&quot;USD_Rate&quot;)
+
+colnames(imp_data_v4) &lt;- c(&quot;Date&quot;,&quot;Export_Total_Amount&quot;,&quot;Consumer_Price_Index_Yearly_Change&quot;,&quot;Consumer_Price_Index_Monthly_Change&quot;,&quot;USD_Rate&quot;)</code></pre>
+<p>Save as RDS files</p>
+<pre class="r"><code>saveRDS(imp_data_v4,file=&#39;imp_data_final.rds&#39;)
+saveRDS(exp_data_v4,file=&#39;exp_data_final.rds&#39;)</code></pre>
 </div>
 
 
