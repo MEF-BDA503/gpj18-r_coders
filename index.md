@@ -32,8 +32,9 @@
 - [Merve Özen Şahin]
 
 ***
-***
-## PROJECT SCOPE ![Image description]
+
+## PROJECT SCOPE 
+![Image description](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/project%20scope.jpg)
                                                     
 
 # PROJECT EXECUTIVE SUMMARY
