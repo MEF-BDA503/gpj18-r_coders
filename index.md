@@ -1,7 +1,9 @@
 # The Progress Journal of FOCUS IMPORT AND EXPORT ISSUES WITH R PROJECT  
 #####  [Course Homepage](https://mef-bda503.github.io/)
 
-## PROJECT TEAM MEMBERS
+
+**
+                                 ## PROJECT TEAM MEMBERS
 
 ![Image description](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/R_developers.jpg)
 
@@ -27,3 +29,5 @@
 - [Mercan Karacabey]
 
 - [Merve Özen Şahin]
+
+**
