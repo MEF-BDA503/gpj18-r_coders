@@ -84,7 +84,10 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 
 **CITATIONS**
+
 [Thanks to Martijn Theuwissen for loops](https://www.r-bloggers.com/how-to-write-the-first-for-loop-in-r/)
+
+[Thanks group four for data manupulation](https://mef-bda503.github.io/gpj18-group_four/)
 
 
 *[Course Homepage](https://mef-bda503.github.io/)*
