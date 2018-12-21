@@ -27,7 +27,6 @@
 ***
 ## PROJECT SCOPE 
 *** 
-
 **Reason to Project Topic**
 
 **Project Executive Summary**
