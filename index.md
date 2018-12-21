@@ -28,4 +28,8 @@
 ## PROJECT SCOPE 
 *** 
 
+**Reason to Project Topic**
+
 **Project Executive Summary**
+
+**Project Analysis Diagrams**
