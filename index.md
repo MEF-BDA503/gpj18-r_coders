@@ -1,5 +1,6 @@
- ***                                           
-                                            The Progress Journal
+***                                           
+                                           The Progress Journal
+
 ***
 
 ##### FOCUS IMPORT AND EXPORT ISSUES WITH R by R_CODERS
