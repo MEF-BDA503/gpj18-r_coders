@@ -1,4 +1,10 @@
-theme: jekyll-theme-slate
-title: r_coders
-description:FOCUS IMPORT AND EXPORT ISSUES WITH R PROJECT
+<<<<<<< HEAD
+theme: jekyll-theme-merlot
+title: R_CODERS
+description: R Analysis For Import Export
+=======
 
+theme: jekyll-theme-tactile
+title: R_CODERS
+description: R Analysis For Import Export
+>>>>>>> c629790bc3c38629512bebdb60178d954b222d9e

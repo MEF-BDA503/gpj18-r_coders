@@ -1,0 +1,31 @@
+---
+title: "R_CODERS R Analysis For Import Export References"
+output: html_document
+author: "R_CODERS"
+date: "21.12.2018"
+---
+
+```{r setup, include=FALSE}
+library(readr)
+library(tidyverse)
+library(scales)
+library(stringr)
+library(zoo)
+library(dplyr)
+```
+
+
+
+
+
+``````{r Journal}
+#this page is used for Process Journal Development :
+htmltools::includeHTML("https://github.com/jtleek/modules/blob/master/05_ReproducibleResearch/Markdown/index.md")
+```
+
+
+
+```{r Shiny}
+#this page is used for learning and exercising Shiny
+htmltools::includeHTML("https://shiny.rstudio.com/tutorial/written-tutorial/lesson2/")
+```
