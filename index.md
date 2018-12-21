@@ -34,7 +34,8 @@
 ***
 ***
 
-                                                    PROJECT SCOPE
+                                                    PROJECT SCOPE ![Image description]
+                                                    
 
 ### PROJECT EXECUTIVE SUMMARY
 
