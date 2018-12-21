@@ -20,7 +20,7 @@
 ### LINKEDIN
 - [Büşra Nur Aydemir]
 
-- [Leyla Yiğit](www.linkedin.com/in/leyla-yiğit-b3894955)
+- [Leyla Yiğit](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)
 
 - [Mehmet Ak]
 
