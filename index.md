@@ -1,5 +1,5 @@
 # The Progress Journal
-# of FOCUS IMPORT AND EXPORT ISSUES WITH R PROJECT  
+# FOCUS IMPORT AND EXPORT ISSUES WITH R PROJECT  
 #####  [Course Homepage](https://mef-bda503.github.io/)
 
 
