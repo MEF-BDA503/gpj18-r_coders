@@ -1,20 +1,17 @@
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 ***
 ***
 ## PROJECT TEAM MEMBERS
 
 img <- readJPG("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/R_developers.jpg")
 
-=======
+
 ## PROJECT TEAM MEMBERS
-=======
+
 ***
   FOCUS IMPORT AND EXPORT ISSUES WITH R by R_CODERS 
-=======
->>>>>>> c629790bc3c38629512bebdb60178d954b222d9e
+
+
 
 
 *** 
@@ -24,7 +21,7 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 ***  
 
 
->>>>>>> 0a67af9120b9f0d8dd90530cc491d71fce2f6eda
+
 
 ## PROJECT TEAM MEMBERS
 *** 
@@ -47,8 +44,7 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 - [Merve Özen Şahin](https://www.linkedin.com/in/merve-ozen-sahin-91027431/)
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 - [Leyla Yiğit] (www.linkedin.com/in/leyla-yiğit-b3894955)
 =======
 - [Leyla Yiğit](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)
