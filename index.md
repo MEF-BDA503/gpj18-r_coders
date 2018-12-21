@@ -1,7 +1,14 @@
 
 ***
 
-*# FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AND FOREIGN EXCHANGE RATES*
+* FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AND FOREIGN EXCHANGE RATES*
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-rendering: geometricPrecision;
+        box-sizing: border-box;
+      }
 
 ***
 
