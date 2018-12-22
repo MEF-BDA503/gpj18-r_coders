@@ -7,7 +7,7 @@ library(ggplot2)
 library(dplyr)
 library(stringr)
 
-raw_data<-readxl::read_excel("/Users/macboookair/Desktop/bda/gpj18-r_coders/import_data/Import.xlsx",skip=7,col_names=FALSE)
+raw_data<-readxl::read_excel("/Users/macboookair/Desktop/bda/gpj18-r_coders/Data_Sources(Excel)/import_1996_2018.xls",skip=7,col_names=FALSE)
 
 head(raw_data)
 tail(raw_data)
@@ -133,10 +133,10 @@ ui <- navbarPage("R Coders",
                                 tabPanel("Table", tableOutput("table"))
                               )
                             ))),
-                 tabPanel("Component 2"),
+                 tabPanel("Import/Export Change Over Time"),
                  navbarMenu("More",
-                            tabPanel("Sub-Component A"),
-                            tabPanel("Sub-Component B"))
+                            tabPanel("Import-Details"),
+                            tabPanel("Export-Details"))
 )
 
 
