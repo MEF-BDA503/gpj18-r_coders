@@ -1,11 +1,46 @@
-# This document was prepared by Mercan Karacabey, Mehmet Ak.
-# 
+
 
 library(readxl)
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
 library(stringr)
+
+## Import Analysis
+
+
+import_data<-readxl::read_excel("/Users/macboookair/Desktop/bda/gpj18-r_coders/Data_Sources(Excel)/import_1996_2018.xls",skip=7,col_names=FALSE)
+#raw_data<-readxl::read_excel("/Users/macboookair/Desktop/bda/gpj18-r_coders/Data_Sources(Excel)/import_1996_2018.xls",skip=7,col_names=FALSE)
+
+head(import_data)
+tail(import_data)
+
+#Define Colnames
+colnames(import_data) <- c("Year","Sector_Type_Code","Sector_Name",	"Total_Amount",	"January",	"February",	"March",	"April",	"May",	"June",	"July","August",	"September",	"October"	,"November","December")
+
+import_data %>% drop_na()
+
+select(import_data,everything())
+
+na.omit(import_data)
+
+apply(import_data,1,function(x)any(!is.na(x)))
+
+na.omit(import_data, cols=c("Year", "Sector_Type_Code"))
+
+cols = c(4:15);    
+import_data[,cols] = suppressWarnings(apply(import_data[,cols], 2, function(x) as.numeric(as.character(x))));
+str(import_data)
+
+import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February)
+
+
+import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% distinct()
+print("1--------1")
+print(import_data)
+print("--------")
+##
+
 
 raw_data<-readxl::read_excel("/Users/macboookair/Desktop/bda/gpj18-r_coders/Data_Sources(Excel)/import_1996_2018.xls",skip=7,col_names=FALSE)
 
@@ -102,8 +137,8 @@ ui <- navbarPage("R Coders",
                             ))),
                  tabPanel("Import/Export Change Over Time"),
                  navbarMenu("More",
-                            tabPanel("Import-Details"),
-                            tabPanel("Export-Details"))
+                            tabPanel("Import-Details",tableOutput("table_import")),
+                            tabPanel("Export-Details",tableOutput("table_export")))
 )
 
 
@@ -120,6 +155,19 @@ server <- function(input, output) {
   output$selected_var <- renderText({
     paste("You have selected",input$Number)
   })
+  
+  output$table <- renderTable({
+    head(import_data, 10)
+  })
+  
+  output$table_import <- renderTable({
+    head(import_data, 10)
+  })
+  
+  output$table_export <- renderTable({
+    head(import_data, 10)
+  })
+  
 }
 
 
