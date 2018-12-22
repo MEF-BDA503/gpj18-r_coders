@@ -76,40 +76,7 @@ Values <- c(1000,1200,1100,1600,1800,1000,1200,1300,2000,1300,1200,1100)
 
 Randoms <- c(1020,1300,1130,1500,1080,2000,2200,1350,2500,1350,1220,1101)
 
-# Define UI for application that draws a histogram
-
-
-ui <- fluidPage( theme = "bootstrap.css",
-  
-  # Application title
-  titlePanel("Import Export Analysis"),
-  
-  
-  # Sidebar with a slider input for number of bins 
-  sidebarLayout(
-    sidebarPanel(
-      sliderInput("Number",
-                  "Participants:",
-                  min = 2010,
-                  max = 2018,
-                  value = c(2015),sep ="",step=1),
-      
-      selectInput(inputId ="exp_data_v2$Sector_Name", label="Kırılımlar", choices = c("All",exp_data_v2$Sector_Name))
-      
-      #sliderInput("votes","Min Votes",min=min(shiny_movie_set$votes),max=max(shiny_movie_set$votes),value = min(shiny_movie_set$votes))
-      # Show a plot of the generated distribution
-    ),
-    
-    
-    mainPanel(
-      tabsetPanel(
-        tabPanel("Plot", plotOutput("distPlot")),
-        tabPanel("Summary", verbatimTextOutput("default")),
-        tabPanel("Table", tableOutput("table"))
-      )
-    )
-  )
-)
+## UI Part ##
 
 ui <- navbarPage("R Coders",
                  tabPanel("Import/Export Main Analysis",
@@ -121,7 +88,7 @@ ui <- navbarPage("R Coders",
                                           max = 2018,
                                           value = c(2015),sep ="",step=1),
                               
-                              selectInput(inputId ="exp_data_v2$Sector_Name", label="Kırılımlar", choices = c("All",exp_data_v2$Sector_Name))
+                              selectInput("exp_data_v2$Sector_Name", label="Kırılımlar", choices = c("All",exp_data_v2$Sector_Name))
                               
                               #sliderInput("votes","Min Votes",min=min(shiny_movie_set$votes),max=max(shiny_movie_set$votes),value = min(shiny_movie_set$votes))
                               # Show a plot of the generated distribution
@@ -129,7 +96,7 @@ ui <- navbarPage("R Coders",
                             mainPanel(
                               tabsetPanel(
                                 tabPanel("Plot", plotOutput("distPlot")),
-                                tabPanel("Summary", verbatimTextOutput("default")),
+                                tabPanel("Summary", verbatimTextOutput("selected_var")),
                                 tabPanel("Table", tableOutput("table"))
                               )
                             ))),
@@ -142,12 +109,16 @@ ui <- navbarPage("R Coders",
 
 
 
-# Define server logic required to draw a histogram
+## Server Part ##
 server <- function(input, output) {
   
   output$distPlot <- renderPlot({
     
     ggplot(exp_data_v2,aes(x=exp_data_v2$Sector_Name,y=exp_data_v2$Total_Amount,color = exp_data_v2$Sector_Type_Code))+geom_point()
+  })
+  
+  output$selected_var <- renderText({
+    paste("You have selected",input$Number)
   })
 }
 
