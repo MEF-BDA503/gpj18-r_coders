@@ -11,6 +11,7 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 ## PROJECT TEAM MEMBERS
 *** 
+
 ![Image description](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/R_developers.jpg)
 
 **GITHUB PAGES**
@@ -46,6 +47,16 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 *** 
 **Excel Raw Data Set**
 
+[For Export Data Click]("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/export_1996_2018.xls")
+
+[For Import Data Click]("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/import_1996_2018.xls")
+
+[For Interest Rate Data Click]("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/Interest.xlsx")
+
+[For Producer Inflation Click]("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/Producer_Inflation.xlsx")
+
+[For US Dollar Montly Rate Click]("https://github.com/MEF-BDA503/gpj18-/blob/master/Data_Sources(Excel)/US_Dollar_Montly_Rate.xlsx")
+
 **RDS Data Set**
 
 
@@ -80,11 +91,19 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 *** 
 **REFERENCES**
 
-[For References Clik](Analysis_Code_Rmd_HTML/References_citations.html)
+[For References Clik](Analysis_Codes_and_RMD_HTML//References_citations.html)
+
 
 **CITATIONS**
 
+[Thanks to Martijn Theuwissen for loops](https://www.r-bloggers.com/how-to-write-the-first-for-loop-in-r/)
 
-*[Course Homepage](https://mef-bda503.github.io/)*
+[Thanks group four for data manupulation](https://mef-bda503.github.io/gpj18-group_four/)
 
-*[Project Documents On Githup](https://github.com/MEF-BDA503/gpj18-r_coders)*
+
+
+***
+
+**[Course Homepage](https://mef-bda503.github.io/)**
+
+**[Project Documents On Githup](https://github.com/MEF-BDA503/gpj18-r_coders)**
