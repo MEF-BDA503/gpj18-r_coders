@@ -1,0 +1,56 @@
+---
+title: "Group Project - Initilization"
+date: "25 11 2018"
+output: html_document
+---
+#### Group Name :<span style="color:red"> R_Coders</span>
+#### Project Name : Import - Export Analysis 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+``` 
+##Project Members
+
+* Büşra Aydemir
+* Leyla Yiğit
+* Mehmet Ak
+* Mercan Karacabey
+* Merve Özen Şahin
+
+## About Project
+
+  We will analyze the recent changes in inflation vs. data on exports and imports.We will analyze the factors which affecting export and import in 3 categories:
+  
+  * Inflation
+  * Exchange Rates
+  * Interest Rates
+  
+Project Schema:
+image: ![](/Users/macboookair/Desktop/bda/gpj18-r_coders/projectSchema.png) 
+
+### Details
+
+We will examine export and import sector based. Some of the sectors which we will examine:
+
+  * Agriculture
+  * Production
+  * Textile
+  * Metal Industry
+  * Plastic
+
+
+#### Where do we get data?
+
+* For Import:
+[Import](http://www.oaib.gov.tr) 
+* For Export:
+[Export](http://www.tim.org.tr/tr/ihracat-rakamlari.html)
+* For Inflation:
+[Inflation](https://www.tcmb.gov.tr/wps/wcm/connect/TR/TCMB+TR/Main+Menu/Istatistikler/Enflasyon+Verileri/Tuketici+Fiyatlari)
+* For Exchange Rate:
+[ExchangeRates](https://github.com/algopoly/EVDS)
+* For Interest Rate:
+[InterestRate](https://evds2.tcmb.gov.tr)
+
+Import data uploaded Github.
+[Here](https://github.com/MEF-BDA503/gpj18-r_coders/tree/master/import_data)
+
