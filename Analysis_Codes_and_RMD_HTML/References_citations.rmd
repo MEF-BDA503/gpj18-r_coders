@@ -61,3 +61,9 @@ library(DT)
 
 
 ```
+```{r SOURCE LINKS FOR BUSINESS ANALYSIS}
+
+#stackoverflow.com is used for How do I add a URL to R markdown? and many questions
+("http://www.paraanaliz.com/2017/ekonomi/ithalattaki-sicrama-dis-ticarette-makasi-acti-15739/")
+
+```
