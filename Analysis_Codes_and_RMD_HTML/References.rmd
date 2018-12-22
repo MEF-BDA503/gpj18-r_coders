@@ -63,7 +63,7 @@ library(DT)
 ```
 ```{r SOURCE LINKS FOR BUSINESS ANALYSIS}
 
-#stackoverflow.com is used for How do I add a URL to R markdown? and many questions
+#Paranaliz.com is used for Business Analysis in order to understand import, export, inflaton, rates correlation and time changes
 ("http://www.paraanaliz.com/2017/ekonomi/ithalattaki-sicrama-dis-ticarette-makasi-acti-15739/")
 
 ```
