@@ -6,7 +6,7 @@
 
 ![alt text](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/R_developers.jpg)
 
-### Click for R_coders Web Site: https://mef-bda503.github.io/
+### Click for R Course Home Page: https://mef-bda503.github.io/
 
 
 ***
