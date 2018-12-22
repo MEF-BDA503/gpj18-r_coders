@@ -32,7 +32,7 @@ library(DT)
 
 ```{r EXCEL DATA SOURCES}
 #EXCEL DATA SOURCES 
-#IMPORT Data Source:
+#IMPORT Data Source
 (" http://www.oaib.gov.tr/tr/default.html")
 #EXPORT DATA SOURCES
 ("http://www.tim.org.tr/tr/ihracat-rakamlari.html")
@@ -47,6 +47,7 @@ library(DT)
 
 
 ```{r SOURCE LINKS FOR HELP}
+#SOURCE LINKS FOR HELP
 #stackoverflow.com is used for How do I add a URL to R markdown? and many questions
 ("https://stackoverflow.com/questions/29787850/how-do-i-add-a-url-to-r-markdown")
 #This page is used for Process Journal Development :
@@ -68,7 +69,7 @@ library(DT)
 
 
 ```{r SOURCE LINKS FOR BUSINESS ANALYSIS}
-
+#BUSINESS ANALYSIS SOURCES
 #stackoverflow.com is used for How do I add a URL to R markdown? and many questions
 ("http://www.paraanaliz.com/2017/ekonomi/ithalattaki-sicrama-dis-ticarette-makasi-acti-15739/")
 
@@ -77,6 +78,9 @@ library(DT)
 
 #Import,export perspective of products heatmaps, time trend
 ("https://atlas.media.mit.edu/en/profile/country/tur/")
+
+#Export, Import Product Range 
+("https://shiny.rstudio.com/gallery/word-cloud.html")
 
 ```
 
