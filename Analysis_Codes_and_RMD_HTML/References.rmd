@@ -23,6 +23,8 @@ library(stringr)
 library(zoo)
 library(dplyr)
 library(DT)
+
+
 ```
 
 
@@ -65,5 +67,19 @@ library(DT)
 
 #Paranaliz.com is used for Business Analysis in order to understand import, export, inflaton, rates correlation and time changes
 ("http://www.paraanaliz.com/2017/ekonomi/ithalattaki-sicrama-dis-ticarette-makasi-acti-15739/")
+#This site is used for change on export import
+("http://www.paraanaliz.com/2018/guncel/ihracat-65-ithalat-%227-azaldi-26613/")
+#This site is used for İthalat knowhow
+("http://www.paraanaliz.com/2017/yazarlar/ithalat-19546/")
+```
 
+
+
+```{r create_tbl, include=FALSE}
+tbl <- 
+  tibble::tribble(
+    ~url,
+    '<a href="https://en.wikipedia.org/wiki/">Wikipedia</a>',
+    '<a href="https://ups.com">UPS</a>')
+tbl
 ```
