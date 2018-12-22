@@ -1,15 +1,22 @@
-
-
 library(readxl)
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
 library(stringr)
+library(rsconnect)
 
 ## Import Analysis
 
+tmp<-tempfile(fileext=".xls")
 
-import_data<-readxl::read_excel("/Users/macboookair/Desktop/bda/gpj18-r_coders/Data_Sources(Excel)/import_1996_2018.xls",skip=7,col_names=FALSE)
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/import_1996_2018.xls?raw=true",mode = 'wb',destfile=tmp)
+
+import_data<-readxl::read_excel(tmp,skip=7,col_names=FALSE)
+
+file.remove(tmp)
+
+
+#import_data<-readxl::read_excel("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/import_1996_2018.xls",skip=7,col_names=FALSE)
 #raw_data<-readxl::read_excel("/Users/macboookair/Desktop/bda/gpj18-r_coders/Data_Sources(Excel)/import_1996_2018.xls",skip=7,col_names=FALSE)
 
 head(import_data)
@@ -41,8 +48,15 @@ print(import_data)
 print("--------")
 ##
 
+tmp<-tempfile(fileext=".xls")
 
-raw_data<-readxl::read_excel("/Users/macboookair/Desktop/bda/gpj18-r_coders/Data_Sources(Excel)/import_1996_2018.xls",skip=7,col_names=FALSE)
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/import_1996_2018.xls?raw=true",mode = 'wb',destfile=tmp)
+
+raw_data<-readxl::read_excel(tmp,skip=7,col_names=FALSE)
+
+file.remove(tmp)
+
+#raw_data<-readxl::read_excel("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/import_1996_2018.xls",skip=7,col_names=FALSE)
 
 head(raw_data)
 tail(raw_data)
