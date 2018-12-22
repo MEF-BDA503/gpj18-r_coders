@@ -281,6 +281,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -288,14 +291,74 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -319,7 +382,9 @@ library(scales)
 library(stringr)
 library(zoo)
 library(dplyr)
-library(DT)</code></pre>
+library(DT)
+install.packages(&quot;rmarkdown&quot;)
+&gt; debugonce(devtools::install)</code></pre>
 <pre class="r"><code>#EXCEL DATA SOURCES 
 #IMPORT Data Source
 (&quot; http://www.oaib.gov.tr/tr/default.html&quot;)</code></pre>
@@ -338,7 +403,7 @@ library(DT)</code></pre>
 <pre><code>## [1] &quot;https://evds2.tcmb.gov.tr/&quot;</code></pre>
 <pre class="r"><code>#SOURCE LINKS FOR HELP
 #stackoverflow.com is used for How do I add a URL to R markdown? and many questions
-(&quot;https://stackoverflow.com/questions/29787850/how-do-i-add-a-url-to-r-markdown&quot;)</code></pre>
+(&#39;https://stackoverflow.com/questions/29787850/how-do-i-add-a-url-to-r-markdown&#39;)</code></pre>
 <pre><code>## [1] &quot;https://stackoverflow.com/questions/29787850/how-do-i-add-a-url-to-r-markdown&quot;</code></pre>
 <pre class="r"><code>#This page is used for Process Journal Development :
 (&quot; https://github.com/jtleek/modules/blob/master/05_ReproducibleResearch/Markdown/index.md&quot;)</code></pre>
