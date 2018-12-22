@@ -75,7 +75,7 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 *** 
 **SHINY**
 
-[For Shiny click]("https://rcoders.shinyapps.io/shiny/")
+[For Shiny Click](https://rcoders.shinyapps.io/shiny/)
 
 ***
 ## PROJECT DOCUMENTATION
