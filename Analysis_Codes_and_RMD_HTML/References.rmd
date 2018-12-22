@@ -63,6 +63,8 @@ library(DT)
 
 
 ```
+
+
 ```{r SOURCE LINKS FOR BUSINESS ANALYSIS}
 
 #Paranaliz.com is used for Business Analysis in order to understand import, export, inflaton, rates correlation and time changes
@@ -74,12 +76,3 @@ library(DT)
 ```
 
 
-
-```{r create_tbl, include=FALSE}
-tbl <- 
-  tibble::tribble(
-    ~url,
-    '<a href="https://en.wikipedia.org/wiki/">Wikipedia</a>',
-    '<a href="https://ups.com">UPS</a>')
-tbl
-```
