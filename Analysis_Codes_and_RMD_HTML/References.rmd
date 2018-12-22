@@ -1,3 +1,4 @@
+<<<<<<< HEAD:Analysis_Codes_and_RMD_HTML/References.rmd
 ---
 title: "R_CODERS R Analysis For Import Export References"
 output: html_document
@@ -76,3 +77,74 @@ library(DT)
 ```
 
 
+=======
+---
+title: "R_CODERS R Analysis For Import Export References"
+output: html_document
+author: "R_CODERS"
+date: "21.12.2018"
+---
+  
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+## R Markdown
+
+
+```{r eval=FALSE}
+#get libraries
+library(readr)
+library(tidyverse)
+library(scales)
+library(stringr)
+library(zoo)
+library(dplyr)
+library(DT)
+```
+
+
+
+```{r EXCEL DATA SOURCES}
+#EXCEL DATA SOURCES 
+#IMPORT Data Source:
+(" http://www.oaib.gov.tr/tr/default.html")
+#EXPORT DATA SOURCES
+("http://www.tim.org.tr/tr/ihracat-rakamlari.html")
+#INFLATION
+("https://www.tcmb.gov.tr/wps/wcm/connect/TR/TCMB+TR/Main+Menu/Istatistikler/Enflasyon+Verileri/Tuketici+Fiyatlari")
+#EXCHANGE RATE
+("https://github.com/algopoly/EVDS")
+#INTEREST RATE
+("https://evds2.tcmb.gov.tr/")
+
+```
+
+
+```{r SOURCE LINKS FOR HELP}
+#stackoverflow.com is used for How do I add a URL to R markdown? and many questions
+("https://stackoverflow.com/questions/29787850/how-do-i-add-a-url-to-r-markdown")
+#This page is used for Process Journal Development :
+(" https://github.com/jtleek/modules/blob/master/05_ReproducibleResearch/Markdown/index.md")
+#This page is used for GGPLOT
+("http://kbroman.org/datacarpentry_R_2017-01-10/03-ggplot2.html")
+#This page is used for INDEX.Md creation and theme adjustments
+("https://bookdown.org/yihui/rmarkdown/beamer-presentation.html#themes")
+#This page is used for waffle chart and pir chart 
+("http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html#Pie%20Chart")
+#This page is used for Summarise and mutate multiple columns
+("https://dplyr.tidyverse.org/reference/summarise_all.html")
+#This page is used for Shiny Dashboard Example
+("https://bookdown.org/yihui/rmarkdown/shiny.html")
+
+
+```
+```{r SOURCE LINKS FOR BUSINESS ANALYSIS}
+
+#stackoverflow.com is used for How do I add a URL to R markdown? and many questions
+("http://www.paraanaliz.com/2017/ekonomi/ithalattaki-sicrama-dis-ticarette-makasi-acti-15739/")
+
+```
+>>>>>>> 4afa5328345965c002f6d8ad8c175f2c65f52e81:Analysis_Codes_and_RMD_HTML/References.rmd

@@ -1,0 +1,10 @@
+name: shiny
+title:
+username:
+account: rcoders
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 622220
+bundleId: 1779559
+url: https://rcoders.shinyapps.io/shiny/
+when: 1545480228.14266
