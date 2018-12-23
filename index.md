@@ -12,23 +12,18 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 ## PROJECT TEAM MEMBERS
 *** 
-![Screenshot](img/Büşra_Aydemir.PNG) 
-
-![Screenshot](img/Mercan_Karacabey.PNG) 
-
-![Screenshot](img/Leyla_Yigit.PNG)
-
-![Screenshot](img/Mehmet_Ak.PNG) 
-
-![Screenshot](img/Merve_Ozen.PNG)   
 
 **GITHUB PAGES**
 
-- [Büşra Nur Aydemir](https://mef-bda503.github.io/pj18-aydemirbusra/) - [Leyla Yiğit](https://mef-bda503.github.io/pj18-Leyla.Yigit/)
+- ![Screenshot](img/Büşra_Aydemir.PNG)  [Büşra Nur Aydemir](https://mef-bda503.github.io/pj18-aydemirbusra/) 
 
-- [Mehmet Ak](https://mef-bda503.github.io/pj18-mehmetakk/) - [Mercan Karacabey](https://mef-bda503.github.io/pj18-mkaracabey/)
+- ![Screenshot](img/Leyla_Yigit.PNG) [Leyla Yiğit](https://mef-bda503.github.io/pj18-Leyla.Yigit/)
 
-- [Merve Özen Şahin](https://mef-bda503.github.io/pj18-ozenm/)
+- ![Screenshot](img/Mehmet_Ak.PNG)  [Mehmet Ak](https://mef-bda503.github.io/pj18-mehmetakk/) 
+
+- ![Screenshot](img/Mercan_Karacabey.PNG)  [Mercan Karacabey](https://mef-bda503.github.io/pj18-mkaracabey/)
+
+- ![Screenshot](img/Merve_Ozen.PNG)   [Merve Özen Şahin](https://mef-bda503.github.io/pj18-ozenm/)
 
 **LINKEDIN**
 - [Büşra Nur Aydemir]( https://www.linkedin.com/in/busra-nur-aydemir-51b81b8b/) - [Leyla Yiğit](https://www.linkedin.com/in/leyla-yi%C4%9Fit-b3894955/)
