@@ -31,7 +31,14 @@ knitr::opts_chunk$set(echo = TRUE)
   * Interest Rates
   
 Project Schema:
-![](C:\Users\Kafein\Documents\github2\gpj18-r_coders\img\projectSchema.png) 
+
+***
+
+Project Management System Procurement Process
+ 
+***
+
+![](C:\Users\Kafein\Documents\github2\gpj18-r_coders\img\IT Project Management System Procurement Process.png) 
 
 ### Details
 
@@ -48,6 +55,7 @@ We will examine export and import sector based. Some of the sectors which we wil
 
 * For Import:
 [Import](http://www.oaib.gov.tr) 
+
 * For Export:
 [Export](http://www.tim.org.tr/tr/ihracat-rakamlari.html)
 * For Inflation:
