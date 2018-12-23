@@ -30,7 +30,7 @@ knitr::opts_chunk$set(echo = TRUE)
   * Exchange Rates
   * Interest Rates
   
-Project Schema:
+
 
 ***
 
@@ -38,7 +38,12 @@ Project Management System Procurement Process
  
 ***
 
+Project Schema:
+
 ![](C:\Users\Kafein\Documents\github2\gpj18-r_coders\img\IT Project Management System Procurement Process.png) 
+
+FOr PDF:
+[PDF of Project Analysis Diagram ](https://www.tcmb.gov.tr/wps/wcm/connect/TR/TCMB+TR/Main+Menu/Istatistikler/Enflasyon+Verileri/Tuketici+Fiyatlari)
 
 ### Details
 
