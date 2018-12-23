@@ -15,22 +15,31 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 **GITHUB PAGES**
 
-- ![Screenshot](img/Büşra_Aydemir.PNG)  [Büşra Nur Aydemir](https://mef-bda503.github.io/pj18-aydemirbusra/) 
+-[Büşra Nur Aydemir](https://mef-bda503.github.io/pj18-aydemirbusra/) 
 
-- ![Screenshot](img/Leyla_Yigit.PNG) [Leyla Yiğit](https://mef-bda503.github.io/pj18-Leyla.Yigit/)
+-[Leyla Yiğit](https://mef-bda503.github.io/pj18-Leyla.Yigit/)
 
-- ![Screenshot](img/Mehmet_Ak.PNG)  [Mehmet Ak](https://mef-bda503.github.io/pj18-mehmetakk/) 
+-[Mehmet Ak](https://mef-bda503.github.io/pj18-mehmetakk/) 
 
-- ![Screenshot](img/Mercan_Karacabey.PNG)  [Mercan Karacabey](https://mef-bda503.github.io/pj18-mkaracabey/)
+-[Mercan Karacabey](https://mef-bda503.github.io/pj18-mkaracabey/)
 
-- ![Screenshot](img/Merve_Ozen.PNG)   [Merve Özen Şahin](https://mef-bda503.github.io/pj18-ozenm/)
+- [Merve Özen Şahin](https://mef-bda503.github.io/pj18-ozenm/)
 
 **LINKEDIN**
-- [Büşra Nur Aydemir]( https://www.linkedin.com/in/busra-nur-aydemir-51b81b8b/) - [Leyla Yiğit](https://www.linkedin.com/in/leyla-yi%C4%9Fit-b3894955/)
+- ![Screenshot](img/Büşra_Aydemir.PNG) 
+[Büşra Nur Aydemir]( https://www.linkedin.com/in/busra-nur-aydemir-51b81b8b/)
 
-- [Mehmet Ak](https://www.linkedin.com/in/ACoAACENGXUBEHApr9slAuQzh8lBviwp1FrY3oY/)- [Mercan Karacabey](https://www.linkedin.com/in/mercan-karacabey-708240103/)
+-![Screenshot](img/Leyla_Yigit.PNG) 
+[Leyla Yiğit](https://www.linkedin.com/in/leyla-yi%C4%9Fit-b3894955/)
 
-- [Merve Özen Şahin](https://www.linkedin.com/in/merve-ozen-sahin-91027431/)
+-![Screenshot](img/Mehmet_Ak.PNG) 
+[Mehmet Ak](https://www.linkedin.com/in/ACoAACENGXUBEHApr9slAuQzh8lBviwp1FrY3oY/)
+
+- [Screenshot](img/Mercan_Karacabey.PNG) 
+[Mercan Karacabey](https://www.linkedin.com/in/mercan-karacabey-708240103/)
+
+-![Screenshot](img/Merve_Ozen.PNG)  
+[Merve Özen Şahin](https://www.linkedin.com/in/merve-ozen-sahin-91027431/)
 
 
 
