@@ -5,9 +5,12 @@ output: html_document
 ---
 #### Group Name :<span style="color:red"> R_Coders</span>
 #### Project Name : Import - Export Analysis 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ``` 
+
+
 
 #EXCEL DATA SOURCES 
 
@@ -53,8 +56,12 @@ knitr::opts_chunk$set(echo = TRUE)
 #This page is used for Shiny Dashboard Example
 [Shiny](https://bookdown.org/yihui/rmarkdown/shiny.html)
 
-#This page is used for add picture to index.mdb
-[index.mdb coding]https://github.com/d0ugal/mkdocs/commit/d9e50170a417601bfd4f804bf6b142c696aeaa9f
+#This pages is used for add picture to index.mdb
+[index.mdb coding](https://github.com/d0ugal/mkdocs/commit/d9e50170a417601bfd4f804bf6b142c696aeaa9f)
+[index.mdb coding2](https://www.mkdocs.org/user-guide/writing-your-docs/#linking-to-images-and-media)
+
+#Learn Shiny
+[Learn Shiny](https://www.youtube.com/watch?v=Gyrfsrd4zK0)
 
 
 ***************************************************************************************************************************************************************************************
