@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = TRUE)
   * Interest Rates
   
 Project Schema:
-image: ![](/Users/macboookair/Desktop/bda/gpj18-r_coders/projectSchema.png) 
+image: ![](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Analysis_Document/projectSchema.png) 
 
 ### Details
 
