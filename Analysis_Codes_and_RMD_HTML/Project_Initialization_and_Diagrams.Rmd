@@ -8,6 +8,8 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ``` 
+![Screenshot](img/project_scope.jpg)
+![](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/project%20scope.jpg)
 ##Project Members
 
 * Büşra Aydemir
@@ -25,7 +27,7 @@ knitr::opts_chunk$set(echo = TRUE)
   * Interest Rates
   
 Project Schema:
-image: ![](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Analysis_Document/projectSchema.png) 
+![](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/projectSchema.png) 
 
 ### Details
 
