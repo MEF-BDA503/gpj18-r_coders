@@ -12,7 +12,7 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 ## PROJECT TEAM MEMBERS
 *** 
 
-![Screenshot](hhttps://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/pemrograman-R.jpg)
+![Screenshot](img/pemrograman-R.jpg)
 
 **GITHUB PAGES**
 
