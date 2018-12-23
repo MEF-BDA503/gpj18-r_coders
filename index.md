@@ -54,6 +54,12 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 **Project Executive Summary**
 
+[Executive Summary in Doc Format](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Analysis_Document/Project_Executive_Summary.docx)
+
+[Executive Summary in Doc PDF](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Analysis_Document/Project_Executive_Summary.pdf)
+
+[Executive Summary HTML](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Analysis_Codes_and_RMD_HTML/Executive_Summary.html)
+
 **Project Analysis Diagrams**
 
 
