@@ -18,6 +18,7 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
  ![Screenshot](img/Mercan_Karacabey.PNG)
  ![Screenshot](img/Merve_Ozen.PNG)
 
+
 **GITHUB PAGES**
 
 -[Büşra Nur Aydemir](https://mef-bda503.github.io/pj18-aydemirbusra/) 
@@ -28,9 +29,10 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 -[Mercan Karacabey](https://mef-bda503.github.io/pj18-mkaracabey/)
 
-- [Merve Özen Şahin](https://mef-bda503.github.io/pj18-ozenm/)
+-[Merve Özen Şahin](https://mef-bda503.github.io/pj18-ozenm/)
 
 **LINKEDIN**
+
 -[Büşra Nur Aydemir]( https://www.linkedin.com/in/busra-nur-aydemir-51b81b8b/)
 
 -[Leyla Yiğit](https://www.linkedin.com/in/leyla-yi%C4%9Fit-b3894955/)
