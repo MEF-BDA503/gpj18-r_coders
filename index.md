@@ -12,11 +12,12 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 ## PROJECT TEAM MEMBERS
 ***
- ![Screenshot](img/Büşra_Aydemir.PNG)
- ![Screenshot](img/Leyla_Yigit.PNG) 
- ![Screenshot](img/Mehmet_Ak.PNG)
- ![Screenshot](img/Mercan_Karacabey.PNG)
- ![Screenshot](img/Merve_Ozen.PNG)
+![Screenshot](img/Merve_Ozen.PNG)
+![Screenshot](img/Leyla_Yigit.PNG)
+![Screenshot](img/Mercan_Karacabey.PNG)
+![Screenshot](img/Mehmet_Ak.PNG)
+![Screenshot](img/Büşra_Aydemir.PNG)
+ 
 
 
 **GITHUB PAGES**
