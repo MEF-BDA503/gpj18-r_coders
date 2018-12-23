@@ -5,6 +5,7 @@ library(ggplot2)
 library(dplyr)
 library(stringr)
 library(rsconnect)
+library(plyr)
 
 
 #Download rds files
@@ -13,6 +14,17 @@ tmp<-tempfile(fileext=".rds")
 download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Rds)/imp_data.rds?raw=true",destfile=tmp,mode = 'wb')
 imp_data<-read_rds(tmp)
 file.remove(tmp)
+
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Rds)/imp_data_final.rds?raw=true",destfile=tmp,mode = 'wb')
+imp_data_final<-read_rds(tmp)
+file.remove(tmp)
+
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Rds)/exp_data_final.rds?raw=true",destfile=tmp,mode = 'wb')
+exp_data_final<-read_rds(tmp)
+file.remove(tmp)
+
 
 #get export data
 tmp<-tempfile(fileext=".rds")
@@ -33,53 +45,40 @@ US_Dollar_data<-read_rds(tmp)
 file.remove(tmp)
 
 
+
+colnames(imp_data)[which(colnames(imp_data) %in% c("Date") )] <- c("Import_Date")
+colnames(exp_data)[which(colnames(exp_data) %in% c("Date") )] <- c("Export_Date")
+
 (imp_data)
 head(exp_data)
 Inflation_data
 US_Dollar_data
+imp_data_final
+exp_data_final
+Export_Import_union_sektor_data
 
-#import_export_data<- inner_join(exp_data,imp_data, by=c("Date" = "Date"))
-#Need union all
-library(plyr)
-#export_import_union_data <- rbind.fill(exp_data,imp_data)
-#.-saveRDS(import_export_data, file = "import_export_data.rds")
-
-Sector_Name_Export<-exp_data %>% select(Sector_Name) %>% distinct 
-Sector_Name_Export<- mutate(Sector_Name_export,Type="Export")
-Sector_Name_Import<-imp_data %>% select(Sector_Name) %>% distinct 
-Sector_Name_Import<- mutate(Sector_Name_Import,Type="Import")
-Export_Import_union_sektor_data <- rbind.fill(Sector_Name_Export,Sector_Name_Import)
-print(Sector_Name)
-#print all columns
-print.data.frame(Sector_Name_Export)
-print.data.frame(Sector_Name_Import)
+#a nes column type
+imp_data_final<- mutate(imp_data_final,Type="Import")
+exp_data_final<- mutate(exp_data_final,Type="Export")
+Export_Import_union_data <- rbind.fill(imp_data_final,exp_data_final)
 print.data.frame(Export_Import_union_sektor_data)
+#change column name as amount
+Export_Total_Amount
+names(Export_Import_union_data)[names(Export_Import_union_data) == "Export_Total_Amount"] <- "Total_Amount"
 
+Export_Import_union_data
 
-
-
-## UI Part ##
-#install.packages("tm")
-#install.packages("wordcloud")
-#install.packages("memoise")
-#install.packages("NLP")
 library(shiny)
-library(tm)
-library(wordcloud)
-library(memoise)
-library(NLP)
+#library(tm)
+#library(wordcloud)
+#library(memoise)
+#library(NLP)
 
 ui <- navbarPage("R Coders",
                  tabPanel("Import/Export Time Analysis",
                           sidebarLayout(
                             sidebarPanel(
-                              sliderInput("Number",
-                                          "Participants:",
-                                          min = 2010,
-                                          max = 2018,
-                                          value = c(2015),sep ="",step=1),
-                              
-                              selectInput("exp_data_v2$Sector_Name", label="Kırılımlar", choices = c("All",exp_data_v2$Sector_Name))
+                             selectInput("Export_Import_union_sektor_data$Type", label="Choose Type", choices = c("All",Export_Import_union_sektor_data$Type))
                               
                               #sliderInput("votes","Min Votes",min=min(shiny_movie_set$votes),max=max(shiny_movie_set$votes),value = min(shiny_movie_set$votes))
                               # Show a plot of the generated distribution
@@ -91,9 +90,48 @@ ui <- navbarPage("R Coders",
                                 tabPanel("Table", tableOutput("table"))
                               )
                             ))),
-                 tabPanel("Import/Export Change Over Time"),
+                 tabPanel("Import/Export Time Analysis"),
                  navbarMenu("More",
-                            tabPanel("Import-Details",tableOutput("table_import")),
-                            tabPanel("Export-Details",tableOutput("table_export")))
-)
+                            tabPanel("Export_Import_union_data",tableOutput("Export_Import_union_data"))
+))
+
+
+
+
+
+## Server Part ##
+server <- function(input, output) {
+  
+  output$distPlot <- renderPlot({
+    
+    
+    
+    ggplot(data=Export_Import_union_data, aes(x=Date, y=Total_Amount, fill=Date)) +
+      geom_bar(stat="identity")+ 
+      theme_classic() + xlab("Date") + 
+      theme(axis.text.x = element_text(angle = 90)) + ylab("Median Number of Participants")
+  })
+  
+  output$selected_var <- renderText({
+    paste("You have selected",input$Number)
+  })
+  
+  output$table <- renderTable({
+    head(import_data, 10)
+  })
+  
+  output$table_import <- renderTable({
+    head(import_data, 10)
+  })
+  
+  output$table_export <- renderTable({
+    head(import_data, 10)
+  })
+  
+}
+
+
+# Create Shiny app ----
+shinyApp(ui, server)
+
 
