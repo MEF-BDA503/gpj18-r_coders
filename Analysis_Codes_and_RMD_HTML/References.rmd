@@ -1,91 +1,81 @@
 ---
-output:
-  html_document: default
-editor_options: 
-  chunk_output_type: console
----
-title: "R_CODERS R Analysis For Import Export References"
+title: "References"
+date: "23.12.2018"
 output: html_document
-author: "R_CODERS"
-date: "21.12.2018"
 ---
-  
-  
+#### Group Name :<span style="color:red"> R_Coders</span>
+#### Project Name : Import - Export Analysis 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+``` 
 
-
-```
-
-## R Markdown
-
-
-```{r eval=FALSE}
-#get libraries
-library(readr)
-library(tidyverse)
-library(scales)
-library(stringr)
-library(zoo)
-library(dplyr)
-library(DT)
-install.packages("rmarkdown")
-> debugonce(devtools::install)
-```
-
-
-
-```{r EXCEL DATA SOURCES}
 #EXCEL DATA SOURCES 
-#IMPORT Data Source
-(" http://www.oaib.gov.tr/tr/default.html")
-#EXPORT DATA SOURCES
-("http://www.tim.org.tr/tr/ihracat-rakamlari.html")
-#INFLATION
-("https://www.tcmb.gov.tr/wps/wcm/connect/TR/TCMB+TR/Main+Menu/Istatistikler/Enflasyon+Verileri/Tuketici+Fiyatlari")
-#EXCHANGE RATE
-("https://github.com/algopoly/EVDS")
-#INTEREST RATE
-("https://evds2.tcmb.gov.tr/")
 
-```
+*IMPORT DATA SOURCES:
+[IMPORT DATA SOURCES]( http://www.oaib.gov.tr/tr/default.html)
+
+*EXPORT DATA SOURCES:
+[EXPORT DATA SOURCES](http://www.tim.org.tr/tr/ihracat-rakamlari.html)
+
+*INFLATION:
+[INFLATION](https://www.tcmb.gov.tr/wps/wcm/connect/TR/TCMB+TR/Main+Menu/Istatistikler/Enflasyon+Verileri/Tuketici+Fiyatlari)
+
+*EXCHANGE RATE:
+[INFLATION](https://github.com/algopoly/EVDS)
+
+*INTEREST RATE
+[INTEREST RATE](https://evds2.tcmb.gov.tr/)
 
 
-```{r SOURCE LINKS FOR HELP}
-#SOURCE LINKS FOR HELP
+***************************************************************************************************************************************************************************************
+
+
+#r SOURCE LINKS FOR HELP
+
 #stackoverflow.com is used for How do I add a URL to R markdown? and many questions
-('https://stackoverflow.com/questions/29787850/how-do-i-add-a-url-to-r-markdown')
+[stackoverflow.com](https://stackoverflow.com/questions/29787850/how-do-i-add-a-url-to-r-markdown)
+
 #This page is used for Process Journal Development :
-(" https://github.com/jtleek/modules/blob/master/05_ReproducibleResearch/Markdown/index.md")
+[Process Journal Development](https://github.com/jtleek/modules/blob/master/05_ReproducibleResearch/Markdown/index.md)
+
 #This page is used for GGPLOT
-("http://kbroman.org/datacarpentry_R_2017-01-10/03-ggplot2.html")
+[GGPLOT](http://kbroman.org/datacarpentry_R_2017-01-10/03-ggplot2.html)
+
 #This page is used for INDEX.Md creation and theme adjustments
-("https://bookdown.org/yihui/rmarkdown/beamer-presentation.html#themes")
+[ INDEX.Md creation and theme adjustments](https://bookdown.org/yihui/rmarkdown/beamer-presentation.html#themes)
+
 #This page is used for waffle chart and pir chart 
-("http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html#Pie%20Chart")
+[chart](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html#Pie%20Chart)
+
 #This page is used for Summarise and mutate multiple columns
-("https://dplyr.tidyverse.org/reference/summarise_all.html")
+[Summarise and mutate multiple columns](https://dplyr.tidyverse.org/reference/summarise_all.html)
+
 #This page is used for Shiny Dashboard Example
-("https://bookdown.org/yihui/rmarkdown/shiny.html")
-
-```
+[Shiny](https://bookdown.org/yihui/rmarkdown/shiny.html)
 
 
+***************************************************************************************************************************************************************************************
 
 
-```{r SOURCE LINKS FOR BUSINESS ANALYSIS}
 #BUSINESS ANALYSIS SOURCES
-#stackoverflow.com is used for How do I add a URL to R markdown? and many questions
-("http://www.paraanaliz.com/2017/ekonomi/ithalattaki-sicrama-dis-ticarette-makasi-acti-15739/")
+
+#Foreign Trade Deficit is the deficit of between export and import
+[Foreign Trade Deficit](http://www.paraanaliz.com/2017/ekonomi/ithalattaki-sicrama-dis-ticarette-makasi-acti-15739/)
 
 #Inflation,currency,import,export,ralationship
-("https://tradingeconomics.com/turkey/imports")
+[Imports is affected from inflation and currency](https://tradingeconomics.com/turkey/imports)
 
 #Import,export perspective of products heatmaps, time trend
-("https://atlas.media.mit.edu/en/profile/country/tur/")
+[Import,export perspective](https://atlas.media.mit.edu/en/profile/country/tur/)
 
 #Export, Import Product Range 
-("https://shiny.rstudio.com/gallery/word-cloud.html")
+[Export, Import Product Range Shiny Development]("https://shiny.rstudio.com/gallery/word-cloud.html")
 
-```
+
+***************************************************************************************************************************************************************************************
+
+
+
+
+
 
