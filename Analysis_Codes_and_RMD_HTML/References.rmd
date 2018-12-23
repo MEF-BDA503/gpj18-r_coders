@@ -53,6 +53,9 @@ knitr::opts_chunk$set(echo = TRUE)
 #This page is used for Shiny Dashboard Example
 [Shiny](https://bookdown.org/yihui/rmarkdown/shiny.html)
 
+#This page is used for add picture to index.mdb
+[index.mdb coding]https://github.com/d0ugal/mkdocs/commit/d9e50170a417601bfd4f804bf6b142c696aeaa9f
+
 
 ***************************************************************************************************************************************************************************************
 
