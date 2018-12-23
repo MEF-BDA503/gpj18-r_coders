@@ -12,12 +12,13 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 ## PROJECT TEAM MEMBERS
 ***
+
 ![Screenshot](img/Merve_Ozen.PNG)
 ![Screenshot](img/Leyla_Yigit.PNG)
 ![Screenshot](img/Mercan_Karacabey.PNG)
 ![Screenshot](img/Mehmet_Ak.PNG)
 ![Screenshot](img/Büşra_Aydemir.PNG)
- 
+
 
 
 **GITHUB PAGES**
@@ -62,15 +63,15 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 *** 
 **Excel Raw Data Set**
 
-[For Export Data Click]("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/export_1996_2018.xls")
+[For Export Data Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/export_1996_2018.xls)
 
-[For Import Data Click]("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/import_1996_2018.xls")
+[For Import Data Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/import_1996_2018.xls)
 
-[For Interest Rate Data Click]("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/Interest.xlsx")
+[For Interest Rate Data Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/Interest.xlsx)
 
-[For Producer Inflation Click]("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/Producer_Inflation.xlsx")
+[For Producer Inflation Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/Producer_Inflation.xlsx)
 
-[For US Dollar Montly Rate Click]("https://github.com/MEF-BDA503/gpj18-/blob/master/Data_Sources(Excel)/US_Dollar_Montly_Rate.xlsx")
+[For US Dollar Montly Rate Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/US_Dollar_Montly_Rate.xlsx)
 
 **RDS Data Set**
 
