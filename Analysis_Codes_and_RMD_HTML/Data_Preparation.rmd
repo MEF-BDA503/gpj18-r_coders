@@ -360,7 +360,7 @@ imp_data_v3 <- inner_join(imp_data_v2,cons_inf_data, by=c("Date" = "Date"))
 
 imp_data_v4 <- inner_join(imp_data_v3,us_rate_data, by=c("Date" = "Date"))
 ```
-
+exp_data_v3
 
 Change column names
 ```{r eval=FALSE}
