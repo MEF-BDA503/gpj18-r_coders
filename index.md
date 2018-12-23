@@ -11,7 +11,12 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 
 ## PROJECT TEAM MEMBERS
-*** 
+***
+ ![Screenshot](img/Büşra_Aydemir.PNG)
+ ![Screenshot](img/Leyla_Yigit.PNG) 
+ ![Screenshot](img/Mehmet_Ak.PNG)
+ ![Screenshot](img/Mercan_Karacabey.PNG)
+ ![Screenshot](img/Merve_Ozen.PNG)
 
 **GITHUB PAGES**
 
@@ -26,20 +31,15 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 - [Merve Özen Şahin](https://mef-bda503.github.io/pj18-ozenm/)
 
 **LINKEDIN**
-- ![Screenshot](img/Büşra_Aydemir.PNG)
-[Büşra Nur Aydemir]( https://www.linkedin.com/in/busra-nur-aydemir-51b81b8b/)
+-[Büşra Nur Aydemir]( https://www.linkedin.com/in/busra-nur-aydemir-51b81b8b/)
 
--![Screenshot](img/Leyla_Yigit.PNG) 
-[Leyla Yiğit](https://www.linkedin.com/in/leyla-yi%C4%9Fit-b3894955/)
+-[Leyla Yiğit](https://www.linkedin.com/in/leyla-yi%C4%9Fit-b3894955/)
 
--![Screenshot](img/Mehmet_Ak.PNG)
-[Mehmet Ak](https://www.linkedin.com/in/ACoAACENGXUBEHApr9slAuQzh8lBviwp1FrY3oY/)
+-[Mehmet Ak](https://www.linkedin.com/in/ACoAACENGXUBEHApr9slAuQzh8lBviwp1FrY3oY/)
 
-- [Screenshot](img/Mercan_Karacabey.PNG)
-[Mercan Karacabey](https://www.linkedin.com/in/mercan-karacabey-708240103/)
+-[Mercan Karacabey](https://www.linkedin.com/in/mercan-karacabey-708240103/)
 
--![Screenshot](img/Merve_Ozen.PNG)
-[Merve Özen Şahin](https://www.linkedin.com/in/merve-ozen-sahin-91027431/)
+-[Merve Özen Şahin](https://www.linkedin.com/in/merve-ozen-sahin-91027431/)
 
 
 
