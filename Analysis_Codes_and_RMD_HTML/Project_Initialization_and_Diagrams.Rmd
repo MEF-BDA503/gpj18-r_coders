@@ -1,15 +1,19 @@
 ---
-title: "Group Project - Initilization"
-date: "25 11 2018"
+title: "Group Project - Initilization and Project Diagrams"
+date: "25.11.2018"
 output: html_document
 ---
+
+![](C:\Users\Kafein\Documents\github2\gpj18-r_coders\img\project_scope.jpg)
+
+
 #### Group Name :<span style="color:red"> R_Coders</span>
 #### Project Name : Import - Export Analysis 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ``` 
-![Screenshot](img/project_scope.jpg)
-![](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/project%20scope.jpg)
+
+
 ##Project Members
 
 * Büşra Aydemir
@@ -27,7 +31,7 @@ knitr::opts_chunk$set(echo = TRUE)
   * Interest Rates
   
 Project Schema:
-![](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/projectSchema.png) 
+![](C:\Users\Kafein\Documents\github2\gpj18-r_coders\img\projectSchema.png) 
 
 ### Details
 
