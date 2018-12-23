@@ -52,15 +52,21 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 *** 
 **Reason to Project Topic**
 
+[Click for Reason of The Topic](Analysis_Codes_and_RMD_HTML/Reason_for_Project_Topic.html)
+
 **Project Executive Summary**
 
 [Executive Summary in Doc Format](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Analysis_Document/Project_Executive_Summary.docx)
 
-[Executive Summary in Doc PDF](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Analysis_Document/Project_Executive_Summary.pdf)
-
 [Executive Summary HTML](Analysis_Codes_and_RMD_HTML/Executive_Summary.html)
 
-**Project Analysis Diagrams**
+**Project Initialization and Related Diagrams**
+
+[Click for Project Initialization Phase](Analysis_Codes_and_RMD_HTML/Project_Initialization_and_Diagrams.html)
+
+[Click For Project Diagram SVG](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/IT%20Project%20Management%20System%20Procurement%20Process.svg)
+
+[Click For Editable Link of Project Data Analysis Diagram](https://www.lucidchart.com/invitations/accept/79186d77-908a-46a3-8513-9f166b41c21f)
 
 
 
