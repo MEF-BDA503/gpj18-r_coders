@@ -1,0 +1,22 @@
+---
+title: "Reason_for_Project_Topic"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+***
+
+WHY R_CODERS CHOOSE IMPORT, EXPORT CORRELATION ANALYSIS
+ 
+***
+
+
+![](C:\Users\Kafein\Documents\github2\gpj18-r_coders\img\import_export.png) 
+
+We started to hear import export amounts, foreign trade deficit, currency rates, inflation and many other financial terms more frequently in our daily life and financial analysis are getting more important day by day. 
+
+
+There are a lot of trustable data sources for trading statistics, inflation and currency rates. We selected Turkey export/import analysis as Project topic because of that we want to understand the reasons behind economic status of Turkey and want to make an introduction to visualize and analyze financial data. 
