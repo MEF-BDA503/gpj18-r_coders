@@ -7,12 +7,13 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 ***  
 
+![Screenshot](img/pemrograman-R.jpg)
 
 
 ## PROJECT TEAM MEMBERS
 *** 
-
-![Screenshot](img/pemrograman-R.jpg)
+![Screenshot](img/Büşra_Aydemir.PNG)   
+![Screenshot](img/Mercan_Karacabey.PNG) ![Screenshot](img/Leyla_Yigit.PNG)![Screenshot](img/Mehmet_Ak.PNG) ![Screenshot](img/Merve_Ozen.PNG)   
 
 **GITHUB PAGES**
 
