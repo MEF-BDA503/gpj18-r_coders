@@ -63,7 +63,7 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 *** 
 **Excel Raw Data Set**
 
-[For Export Data Click]("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/export_1996_2018.xls")
+[For Export Data Click]("C:\Users\Kafein\Documents\github2\gpj18-r_coders\Data_Sources_Excel\export_1996_2018.xls")
 
 [For Import Data Click]("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/import_1996_2018.xls")
 
