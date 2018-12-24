@@ -30,7 +30,7 @@ print("*******************")
 ## Print No Import Sectors
 import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% distinct()
 print("1--------1")
-print(import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% distinct())
+print(import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% filter(!(is.na(Sector_Name))) %>% distinct())
 print("--------")
 ##
 
@@ -66,14 +66,6 @@ na.omit(raw_data, cols=c("Year", "Sector_Type_Code"))
 head(raw_data)
 
 raw_data <- raw_data[rowSums(is.na(raw_data)) != ncol(raw_data),]
-
-as.numeric(raw_data$January)
-
-head(raw_data)
-
-as.numeric(raw_data$January)
-as.numeric(raw_data$February)
-
 
 cols = c(4:15);    
 raw_data[,cols] = suppressWarnings(apply(raw_data[,cols], 2, function(x) as.numeric(as.character(x))));
@@ -112,6 +104,10 @@ Values <- c(1000,1200,1100,1600,1800,1000,1200,1300,2000,1300,1200,1100)
 
 Randoms <- c(1020,1300,1130,1500,1080,2000,2200,1350,2500,1350,1220,1101)
 
+## Import/ Export Union Part
+
+
+
 ## UI Part ##
 
 ui <- navbarPage("R Coders",
@@ -133,14 +129,13 @@ ui <- navbarPage("R Coders",
                             mainPanel(
                               tabsetPanel(
                                 tabPanel("Plot", plotOutput("distPlot"),h6("Episode IV", align = "center"),
-                                         
                                          h4("Rebel spaceships, striking", align = "center"),
                                          h3("from a hidden base, have won", align = "center")),
                                 tabPanel("Summary", verbatimTextOutput("selected_var"),verbatimTextOutput("summary")),
                                 tabPanel("Table", tableOutput("table"))
                               )
                             ))),
-                 tabPanel("Import/Export Change Over Time"),
+                 tabPanel("Import/Export Change Over Time",plotOutput("importExportPlot")),
                  navbarMenu("More",
                             tabPanel("Import-Details",tableOutput("table_import")),
                             tabPanel("Export-Details",tableOutput("table_export")))
@@ -153,7 +148,10 @@ ui <- navbarPage("R Coders",
 server <- function(input, output) {
   
   output$distPlot <- renderPlot({
-    
+    ggplot(exp_data_v2,aes(x=exp_data_v2$Sector_Type_Code,y=exp_data_v2$Total_Amount,color = exp_data_v2$Sector_Type_Code))+geom_point()+theme(axis.text.x = element_text(angle = 60, hjust = 1))
+  })
+  
+  output$importExportPlot <- renderPlot({
     ggplot(exp_data_v2,aes(x=exp_data_v2$Sector_Type_Code,y=exp_data_v2$Total_Amount,color = exp_data_v2$Sector_Type_Code))+geom_point()+theme(axis.text.x = element_text(angle = 60, hjust = 1))
   })
   
@@ -171,8 +169,7 @@ server <- function(input, output) {
   })
   
   output$table_import <- renderTable({
-    head(import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% distinct()
-, 10)
+    head(import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% distinct() %>%  filter(!(is.na(Sector_Name))), 10)
   })
   
   output$table_export <- renderTable({
