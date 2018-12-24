@@ -615,6 +615,7 @@ exp_data_v4 &lt;- inner_join(exp_data_v3,us_rate_data, by=c(&quot;Date&quot; = &
 imp_data_v3 &lt;- inner_join(imp_data_v2,cons_inf_data, by=c(&quot;Date&quot; = &quot;Date&quot;))
 
 imp_data_v4 &lt;- inner_join(imp_data_v3,us_rate_data, by=c(&quot;Date&quot; = &quot;Date&quot;))</code></pre>
+<p>exp_data_v3</p>
 <p>Change column names</p>
 <pre class="r"><code>colnames(exp_data_v4) &lt;- c(&quot;Date&quot;,&quot;Export_Total_Amount&quot;,&quot;Consumer_Price_Index_Yearly_Change&quot;,&quot;Consumer_Price_Index_Monthly_Change&quot;,&quot;USD_Rate&quot;)
 
