@@ -1,4 +1,4 @@
-4library(readxl)
+library(readxl)
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
@@ -15,25 +15,8 @@ import_data<-readxl::read_excel(tmp,skip=7,col_names=FALSE)
 
 file.remove(tmp)
 
-
-#import_data<-readxl::read_excel("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/import_1996_2018.xls",skip=7,col_names=FALSE)
-#raw_data<-readxl::read_excel("/Users/macboookair/Desktop/bda/gpj18-r_coders/Data_Sources(Excel)/import_1996_2018.xls",skip=7,col_names=FALSE)
-
-head(import_data)
-tail(import_data)
-
 #Define Colnames
 colnames(import_data) <- c("Year","Sector_Type_Code","Sector_Name",	"Total_Amount",	"January",	"February",	"March",	"April",	"May",	"June",	"July","August",	"September",	"October"	,"November","December")
-
-import_data %>% drop_na()
-
-select(import_data,everything())
-
-na.omit(import_data)
-
-apply(import_data,1,function(x)any(!is.na(x)))
-
-na.omit(import_data, cols=c("Year", "Sector_Type_Code"))
 
 cols = c(4:15);    
 import_data[,cols] = suppressWarnings(apply(import_data[,cols], 2, function(x) as.numeric(as.character(x))));
@@ -44,11 +27,17 @@ print("*******************")
 print(import_data %>% select(Sector_Name,January,February,March)) %>% mutate(VATotal = import_data$January + import_data$February + import_data$March) %>% filter(VATotal > 3000000)
 print("*******************")
 
+## Print No Import Sectors
 import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% distinct()
 print("1--------1")
 print(import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% distinct())
 print("--------")
 ##
+
+print("Sectors January + February")
+print(import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February))
+print("LAST")
+
 
 tmp<-tempfile(fileext=".xls")
 
@@ -137,15 +126,17 @@ ui <- navbarPage("R Coders",
                               
                               selectInput("exp_data_v2$Sector_Name", label="Kırılımlar", choices = c("All",exp_data_v2$Sector_Name))
                               
+                              
                               #sliderInput("votes","Min Votes",min=min(shiny_movie_set$votes),max=max(shiny_movie_set$votes),value = min(shiny_movie_set$votes))
                               # Show a plot of the generated distribution
                             ),
                             mainPanel(
                               tabsetPanel(
                                 tabPanel("Plot", plotOutput("distPlot"),h6("Episode IV", align = "center"),
+                                         
                                          h4("Rebel spaceships, striking", align = "center"),
                                          h3("from a hidden base, have won", align = "center")),
-                                tabPanel("Summary", verbatimTextOutput("selected_var")),
+                                tabPanel("Summary", verbatimTextOutput("selected_var"),verbatimTextOutput("summary")),
                                 tabPanel("Table", tableOutput("table"))
                               )
                             ))),
@@ -171,7 +162,12 @@ server <- function(input, output) {
   })
   
   output$table <- renderTable({
-    head(import_data, 10)
+    head(import_data %>% select(Sector_Name,Total_Amount), 10)
+  })
+  
+  output$summary <- renderPrint({
+    dataset <- import_data %>% select(Sector_Name,Sector_Type_Code)
+    summary(dataset)
   })
   
   output$table_import <- renderTable({
@@ -180,7 +176,7 @@ server <- function(input, output) {
   })
   
   output$table_export <- renderTable({
-    head(import_data, 10)
+    head(import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February) %>% filter(VADiff>1000000 & Sector_Name != 'Toplam -Total') %>% distinct(Sector_Name), 10)
   })
   
 }
