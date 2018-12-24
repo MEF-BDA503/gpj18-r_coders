@@ -4,6 +4,8 @@ library(ggplot2)
 library(dplyr)
 library(stringr)
 library(rsconnect)
+library(plotly)
+library(gapminder)
 
 ## Import Analysis
 
@@ -106,6 +108,126 @@ Randoms <- c(1020,1300,1130,1500,1080,2000,2200,1350,2500,1350,1220,1101)
 
 ## Import/ Export Union Part
 
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/imp_data_final.rds?raw=true?raw=true",destfile=tmp,mode = 'wb')
+imp_data_final<-read_rds(tmp)
+file.remove(tmp)
+
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/exp_data_final.rds?raw=true?raw=true",destfile=tmp,mode = 'wb')
+exp_data_final<-read_rds(tmp)
+file.remove(tmp)
+
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/imp_data.rds?raw=true?raw=true",destfile=tmp,mode = 'wb')
+imp_data<-read_rds(tmp)
+file.remove(tmp)
+
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/exp_data.rds?raw=true?raw=true",destfile=tmp,mode = 'wb')
+exp_data<-read_rds(tmp)
+file.remove(tmp)
+
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/Producer_Inflation.rds?raw=true?raw=true",destfile=tmp,mode = 'wb')
+producer_inf<-read_rds(tmp)
+file.remove(tmp)
+
+# Create a temporary file
+tmp=tempfile(fileext=".xls")
+# Download file from repository to the temp file
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/export_import_sectors.xls?raw=true",destfile=tmp,mode='wb')
+# Read that excel file.
+sectors <- read_excel(tmp)
+# Remove the temp file
+file.remove(tmp)
+
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/US_Dollar_Montly_Rate.rds?raw=true?raw=true",destfile=tmp,mode = 'wb')
+usd_rate<-read_rds(tmp)
+file.remove(tmp)
+
+names(exp_data_final)[names(exp_data_final) == 'Date'] <- 'Export_Date'
+names(exp_data)[names(exp_data) == 'Date'] <- 'Export_Date'
+names(imp_data_final)[names(imp_data_final) == 'Date'] <- 'Import_Date'
+names(imp_data_final)[names(imp_data_final) == 'Export_Total_Amount'] <- 'Import_Total_Amount' #fix
+names(imp_data)[names(imp_data) == 'Date'] <- 'Import_Date'
+
+exp_data <- inner_join(exp_data,sectors, by=c("Sector_Type_Code"="Sub_Sector_Type_Code"))
+
+imp_data <- inner_join(imp_data,sectors, by=c("Sector_Type_Code"="Sub_Sector_Type_Code"))
+
+exp_data$Export_Year<-format(exp_data$Export_Date,"%Y")
+exp_data$Export_Year_Month<-format(exp_data$Export_Date,"%Y-%m")
+exp_data_final$Export_Year<-format(exp_data_final$Export_Date,"%Y")
+exp_data_final$Export_Year_Month<-format(exp_data_final$Export_Date,"%Y-%m")
+
+imp_data$Import_Year<-format(imp_data$Import_Date,"%Y")
+imp_data$Import_Year_Month<-format(imp_data$Import_Date,"%Y-%m")
+imp_data_final$Import_Year<-format(imp_data_final$Import_Date,"%Y")
+imp_data_final$Import_Year_Month<-format(imp_data_final$Import_Date,"%Y-%m")
+
+imp_data<- imp_data %>%
+  select (Import_Date,Sector_Type_Code,Sector_Type_Code.y,Main_Sector_Flag,Sector_Name_Eng,Amount,Import_Year,Import_Year_Month)
+
+exp_data<- exp_data %>%
+  select (Export_Date,Sector_Type_Code,Sector_Type_Code.y,Main_Sector_Flag,Sector_Name_Eng,Amount,Export_Year,Export_Year_Month)  
+
+
+colnames(imp_data)[colnames(imp_data) == 'Amount'] <- 'Import_Amount'
+colnames(exp_data)[colnames(exp_data) == 'Amount'] <- 'Export_Amount'
+colnames(imp_data)[colnames(imp_data) == 'Sector_Type_Code'] <- 'Sub_Sector_Type_Code'
+colnames(exp_data)[colnames(exp_data) == 'Sector_Type_Code'] <- 'Sub_Sector_Type_Code'
+colnames(imp_data)[colnames(imp_data) == 'Sector_Type_Code.y'] <- 'Sector_Type_Code'
+colnames(exp_data)[colnames(exp_data) == 'Sector_Type_Code.y'] <- 'Sector_Type_Code'
+imp_data$Import_Amount[is.na(imp_data$Import_Amount)] <- 0
+imp_data_final$Import_Total_Amount[is.na(imp_data_final$Import_Total_Amount)] <- 0
+exp_data$Export_Amount[is.na(exp_data$Export_Amount)] <- 0
+exp_data_final$Export_Total_Amount[is.na(exp_data_final$Export_Total_Amount)] <- 0
+
+exp_data_final <- exp_data_final %>%
+  filter(Export_Date<'2018-11-01')
+
+exp_data <- exp_data %>%
+  filter(Export_Date<'2018-11-01')
+
+imp_data_final <- imp_data_final %>%
+  filter(Import_Date<'2018-11-01')
+
+imp_data <- imp_data %>%
+  filter(Import_Date<'2018-11-01')
+
+saveRDS(imp_data,file="imp_data_v2.rds")
+saveRDS(imp_data_final,file="imp_data_final_v2.rds")
+saveRDS(exp_data,file="exp_data_v2.rds")
+saveRDS(exp_data_final,file="exp_data_final_v2.rds")
+
+imp_and_exp_data <- inner_join(exp_data, imp_data, by=c("Export_Date" = "Import_Date","Sub_Sector_Type_Code"="Sub_Sector_Type_Code"))
+
+imp_and_exp_data_bymonth <- aggregate(cbind(Import_Amount, Export_Amount) ~ Export_Date, data = imp_and_exp_data, sum)
+imp_and_exp_data_bymonth <- gather(imp_and_exp_data_bymonth,
+                                   value = "value",
+                                   key = "type",
+                                   Export_Amount, Import_Amount)
+
+#Rename column names
+colnames(imp_and_exp_data_bymonth) <- c("Date","Type","Amount")
+
+#Remove Empty Dates
+imp_and_exp_data_bymonth <- imp_and_exp_data_bymonth %>%
+  filter(Date<'2018-11-01')
+
+p <- exp_data_final %>%
+  ggplot(aes(USD_Rate, Export_Total_Amount, size = Consumer_Price_Index_Yearly_Change, color=Export_Year)) +
+  geom_point() +
+  scale_x_log10() +
+  theme_bw()+
+  scale_size_area("Nitrogen") + 
+  xlab("USD Rate") +
+  ylab("Export Amount(1000$)") +
+  ggtitle("Export Amounts and Consumer Price Index")
+
+ggplotly(p)
 
 
 ## UI Part ##
@@ -135,7 +257,9 @@ ui <- navbarPage("R Coders",
                                 tabPanel("Table", tableOutput("table"))
                               )
                             ))),
-                 tabPanel("Import/Export Change Over Time",plotOutput("importExportPlot")),
+                 tabPanel("Import/Export Change Over Time",mainPanel(tabsetPanel(tabPanel("Plot1",plotOutput("importExportPlot")),
+                                                                                 tabPanel("Plot2",plotOutput("ExpoloratoryPlot")),
+                                                                                 tabPanel("Plot3",plotOutput("UsdRatePlot"))))),
                  navbarMenu("More",
                             tabPanel("Import-Details",tableOutput("table_import")),
                             tabPanel("Export-Details",tableOutput("table_export")))
@@ -152,8 +276,39 @@ server <- function(input, output) {
   })
   
   output$importExportPlot <- renderPlot({
-    ggplot(exp_data_v2,aes(x=exp_data_v2$Sector_Type_Code,y=exp_data_v2$Total_Amount,color = exp_data_v2$Sector_Type_Code))+geom_point()+theme(axis.text.x = element_text(angle = 60, hjust = 1))
+    ggplot(imp_and_exp_data_bymonth,
+           aes(x=Date,
+               y=Amount,
+               color=Type)) +
+      geom_line()+
+      scale_size_area("Nitrogen") + 
+      xlab("Import/Export Date") +
+      ylab("Amount(1000$)") +
+      ggtitle("Import & Export Amount")
   })
+  
+  output$ExpoloratoryPlot <- renderPlot({
+      ggplot(exp_data_final,aes(x=USD_Rate, y = Export_Total_Amount, size = Consumer_Price_Index_Yearly_Change, color=Export_Year)) +
+      geom_point() +
+      scale_x_log10() +
+      theme_bw()+
+      scale_size_area("Nitrogen") + 
+      xlab("USD Rate") +
+      ylab("Export Amount(1000$)") +
+      ggtitle("Export Amounts and Consumer Price Index")
+  })
+  
+  output$UsdRatePlot <- renderPlot({
+      ggplot(imp_data_final,aes(USD_Rate, Import_Total_Amount, size = Consumer_Price_Index_Yearly_Change, color=Import_Year)) +
+      geom_point() +
+      scale_x_log10() +
+      theme_bw()+
+      scale_size_area("Nitrogen") + 
+      xlab("USD Rate") +
+      ylab("Import Amount(1000$)") +
+      ggtitle("Import Amounts and Consumer Price Index")
+  })
+  
   
   output$selected_var <- renderText({
     paste("You have selected",input$Number)
