@@ -1,0 +1,25 @@
+---
+title: "Executive_Summary"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Executive Summary of R Analysis for Import Export
+
+
+*We investigated import/export amounts, currency rates, inflation rates and customer price index changes from 2010 to April 2018.
+
+*We mainly looked changes in the export import amounts, main sectors for export and import and possible correlations between export/import amounts between currency rates and inflation.
+
+
+*When export sub-sectors are investigated for last 3 years, we saw that top 3 export subsectors are manufacture of motor vehicles and trailers, manufacture of basic metals and manufacture of textiles.
+
+*When import subsectors are investigated for last 3 years, we saw that top 3 import subsectors are manufacture of basic metals, manufacture of chemicals and chemical products, mining and quarrying.
+
+*A significant decrease in import is seen between 2014-2016, when we investigated currency rates for the same period, we saw that dollar currency #rate was increased dramatically which means that increases in currency rates have a decreasing impact over import amount.
+
+
+*As an overall conclusion we can say that import amounts are always more than export amount which means there is a chronical foreign trade deficit problem, however foreign trade deficit is in a decreasing trend after 2013 except for 2017.
+

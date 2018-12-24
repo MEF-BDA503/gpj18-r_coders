@@ -1,13 +1,19 @@
 ---
-title: "Group Project - Initilization"
-date: "25 11 2018"
+title: "Group Project - Initilization and Project Diagrams"
+date: "25.11.2018"
 output: html_document
 ---
+
+![](C:\Users\Kafein\Documents\github2\gpj18-r_coders\img\project_scope.jpg)
+
+
 #### Group Name :<span style="color:red"> R_Coders</span>
 #### Project Name : Import - Export Analysis 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ``` 
+
+
 ##Project Members
 
 * Büşra Aydemir
@@ -24,8 +30,20 @@ knitr::opts_chunk$set(echo = TRUE)
   * Exchange Rates
   * Interest Rates
   
+
+
+***
+
+Project Management System Procurement Process
+ 
+***
+
 Project Schema:
-image: ![](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Analysis_Document/projectSchema.png) 
+
+![](C:\Users\Kafein\Documents\github2\gpj18-r_coders\img\IT Project Management System Process.png) 
+
+
+[PDF of Project Analysis Diagram ](https://www.tcmb.gov.tr/wps/wcm/connect/TR/TCMB+TR/Main+Menu/Istatistikler/Enflasyon+Verileri/Tuketici+Fiyatlari)
 
 ### Details
 
@@ -42,6 +60,7 @@ We will examine export and import sector based. Some of the sectors which we wil
 
 * For Import:
 [Import](http://www.oaib.gov.tr) 
+
 * For Export:
 [Export](http://www.tim.org.tr/tr/ihracat-rakamlari.html)
 * For Inflation:

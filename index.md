@@ -7,27 +7,43 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 ***  
 
+![Screenshot](img/pemrograman-R.jpg)
 
 
 ## PROJECT TEAM MEMBERS
-*** 
+***
 
-![Screenshot](img/pemrograman-R.jpg)
+![Screenshot](img/Merve_Ozen.PNG)
+![Screenshot](img/Leyla_Yigit.PNG)
+![Screenshot](img/Mercan_Karacabey.PNG)
+![Screenshot](img/Mehmet_Ak.PNG)
+![Screenshot](img/Büşra_Aydemir.PNG)
+
+
 
 **GITHUB PAGES**
 
-- [Büşra Nur Aydemir](https://mef-bda503.github.io/pj18-aydemirbusra/) - [Leyla Yiğit](https://mef-bda503.github.io/pj18-Leyla.Yigit/)
+-[Büşra Nur Aydemir](https://mef-bda503.github.io/pj18-aydemirbusra/) 
 
-- [Mehmet Ak](https://mef-bda503.github.io/pj18-mehmetakk/) - [Mercan Karacabey](https://mef-bda503.github.io/pj18-mkaracabey/)
+-[Leyla Yiğit](https://mef-bda503.github.io/pj18-Leyla.Yigit/)
 
-- [Merve Özen Şahin](https://mef-bda503.github.io/pj18-ozenm/)
+-[Mehmet Ak](https://mef-bda503.github.io/pj18-mehmetakk/) 
+
+-[Mercan Karacabey](https://mef-bda503.github.io/pj18-mkaracabey/)
+
+-[Merve Özen Şahin](https://mef-bda503.github.io/pj18-ozenm/)
 
 **LINKEDIN**
-- [Büşra Nur Aydemir]( https://www.linkedin.com/in/busra-nur-aydemir-51b81b8b/) - [Leyla Yiğit](https://www.linkedin.com/in/leyla-yi%C4%9Fit-b3894955/)
 
-- [Mehmet Ak](https://www.linkedin.com/in/ACoAACENGXUBEHApr9slAuQzh8lBviwp1FrY3oY/)- [Mercan Karacabey](https://www.linkedin.com/in/mercan-karacabey-708240103/)
+-[Büşra Nur Aydemir]( https://www.linkedin.com/in/busra-nur-aydemir-51b81b8b/)
 
-- [Merve Özen Şahin](https://www.linkedin.com/in/merve-ozen-sahin-91027431/)
+-[Leyla Yiğit](https://www.linkedin.com/in/leyla-yi%C4%9Fit-b3894955/)
+
+-[Mehmet Ak](https://www.linkedin.com/in/ACoAACENGXUBEHApr9slAuQzh8lBviwp1FrY3oY/)
+
+-[Mercan Karacabey](https://www.linkedin.com/in/mercan-karacabey-708240103/)
+
+-[Merve Özen Şahin](https://www.linkedin.com/in/merve-ozen-sahin-91027431/)
 
 
 
@@ -36,9 +52,21 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 *** 
 **Reason to Project Topic**
 
+[Click for Reason of The Topic](Analysis_Codes_and_RMD_HTML/Reason_for_Project_Topic.html)
+
 **Project Executive Summary**
 
-**Project Analysis Diagrams**
+[Executive Summary in Doc Format](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Analysis_Document/Project_Executive_Summary.docx)
+
+[Executive Summary HTML](Analysis_Codes_and_RMD_HTML/Executive_Summary.html)
+
+**Project Initialization and Related Diagrams**
+
+[Click for Project Initialization Phase](Analysis_Codes_and_RMD_HTML/Project_Initialization_and_Diagrams.html)
+
+[Click For Project Diagram SVG](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/img/IT%20Project%20Management%20System%20Procurement%20Process.svg)
+
+[Click For Editable Link of Project Data Analysis Diagram](https://www.lucidchart.com/invitations/accept/79186d77-908a-46a3-8513-9f166b41c21f)
 
 
 
@@ -47,15 +75,15 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 *** 
 **Excel Raw Data Set**
 
-[For Export Data Click]("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/export_1996_2018.xls")
+[For Export Data Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/export_1996_2018.xls)
 
-[For Import Data Click]("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/import_1996_2018.xls")
+[For Import Data Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/import_1996_2018.xls)
 
-[For Interest Rate Data Click]("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/Interest.xlsx")
+[For Interest Rate Data Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/Interest.xlsx)
 
-[For Producer Inflation Click]("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/Producer_Inflation.xlsx")
+[For Producer Inflation Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/Producer_Inflation.xlsx)
 
-[For US Dollar Montly Rate Click]("https://github.com/MEF-BDA503/gpj18-/blob/master/Data_Sources(Excel)/US_Dollar_Montly_Rate.xlsx")
+[For US Dollar Montly Rate Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/US_Dollar_Montly_Rate.xlsx)
 
 **RDS Data Set**
 
@@ -64,9 +92,11 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 ***
 ## DATA PREPERATION AND ANALYSIS
 *** 
-**RMD FILES**
+**Data Preperation and Cleaning**
 
 **ANALSIS WITH R**
+
+**RMD Files**
 
 
 

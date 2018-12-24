@@ -104,12 +104,18 @@ server <- function(input, output) {
   
   output$distPlot <- renderPlot({
     
+    # Line plot with multiple groups
+      ggplot(data=Export_Import_union_data, aes(x=Date, y=Total_Amount, group=Date)) +
+      geom_line()+
+      geom_point()
+    # Change line types
+    ggplot(data=Export_Import_union_data, aes(x=Date, y=Total_Amount, group=Date)) +
+      geom_line(linetype="dashed", color="blue", size=1.2)+
+      geom_point(color="red", size=3)
     
+   
+     
     
-    ggplot(data=Export_Import_union_data, aes(x=Date, y=Total_Amount, fill=Date)) +
-      geom_bar(stat="identity")+ 
-      theme_classic() + xlab("Date") + 
-      theme(axis.text.x = element_text(angle = 90)) + ylab("Median Number of Participants")
   })
   
   output$selected_var <- renderText({
