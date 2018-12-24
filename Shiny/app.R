@@ -9,7 +9,7 @@ library(rsconnect)
 
 tmp<-tempfile(fileext=".xls")
 
-download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/import_1996_2018.xls?raw=true",mode = 'wb',destfile=tmp)
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/import_1996_2018.xls?raw=true",mode = 'wb',destfile=tmp)
 
 import_data<-readxl::read_excel(tmp,skip=7,col_names=FALSE)
 
@@ -39,18 +39,20 @@ cols = c(4:15);
 import_data[,cols] = suppressWarnings(apply(import_data[,cols], 2, function(x) as.numeric(as.character(x))));
 str(import_data)
 
-import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February)
-
+print("Find Maximum Values")
+print("*******************")
+print(import_data %>% select(Sector_Name,January,February,March)) %>% mutate(VATotal = import_data$January + import_data$February + import_data$March) %>% filter(VATotal > 3000000)
+print("*******************")
 
 import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% distinct()
 print("1--------1")
-print(import_data)
+print(import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% distinct())
 print("--------")
 ##
 
 tmp<-tempfile(fileext=".xls")
 
-download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/import_1996_2018.xls?raw=true",mode = 'wb',destfile=tmp)
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/import_1996_2018.xls?raw=true",mode = 'wb',destfile=tmp)
 
 raw_data<-readxl::read_excel(tmp,skip=7,col_names=FALSE)
 
@@ -93,8 +95,6 @@ raw_data %>% select(Sector_Name) %>% mutate(VADiff = raw_data$January + raw_data
 for (row in 1:nrow(raw_data)) {
   year <- raw_data[row, "Year"]
   if(!is.na(year) & year == 2017){
-    print(paste("YEAR-ROW",year))
-    print(paste("row-i",i))
     break
   }
   raw_data[row, "Year"] <- 2018
@@ -104,8 +104,6 @@ v_year <- 2017
 for (row in 1:nrow(raw_data)) {
   year <- raw_data[row, "Year"]
   if(!is.na(year) & year == v_year){
-    print(paste("YEAR-ROW",year))
-    print(paste("row-i",i))
     v_year <- v_year - 1
   }
   raw_data[row, "Year"] <- v_year + 1
@@ -144,7 +142,9 @@ ui <- navbarPage("R Coders",
                             ),
                             mainPanel(
                               tabsetPanel(
-                                tabPanel("Plot", plotOutput("distPlot")),
+                                tabPanel("Plot", plotOutput("distPlot"),h6("Episode IV", align = "center"),
+                                         h4("Rebel spaceships, striking", align = "center"),
+                                         h3("from a hidden base, have won", align = "center")),
                                 tabPanel("Summary", verbatimTextOutput("selected_var")),
                                 tabPanel("Table", tableOutput("table"))
                               )
@@ -163,7 +163,7 @@ server <- function(input, output) {
   
   output$distPlot <- renderPlot({
     
-    ggplot(exp_data_v2,aes(x=exp_data_v2$Sector_Name,y=exp_data_v2$Total_Amount,color = exp_data_v2$Sector_Type_Code))+geom_point()
+    ggplot(exp_data_v2,aes(x=exp_data_v2$Sector_Type_Code,y=exp_data_v2$Total_Amount,color = exp_data_v2$Sector_Type_Code))+geom_point()+theme(axis.text.x = element_text(angle = 60, hjust = 1))
   })
   
   output$selected_var <- renderText({
@@ -175,7 +175,8 @@ server <- function(input, output) {
   })
   
   output$table_import <- renderTable({
-    head(import_data, 10)
+    head(import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% distinct()
+, 10)
   })
   
   output$table_export <- renderTable({
@@ -183,8 +184,6 @@ server <- function(input, output) {
   })
   
 }
-
-
 # Create Shiny app ----
 shinyApp(ui, server)
 
