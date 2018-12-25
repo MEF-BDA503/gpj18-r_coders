@@ -230,6 +230,9 @@ p <- exp_data_final %>%
 ggplotly(p)
 
 
+df = data.frame("brand" = c("Tarım ve ormancılık","Tarım ve hayvancılık","Ormancılık ve tomrukçuluk","Balıkçılık","Madencilik ve taşocakçılığı","Maden kömürü, linyit"),
+                "share" = c(.2090,.1580,.1210,.0930,.0860,.3320))
+
 ## UI Part ##
 
 ui <- navbarPage("R Coders",
@@ -272,8 +275,6 @@ ui <- navbarPage("R Coders",
 ## Server Part ##
 server <- function(input, output) {
   
-  
-  
   output$distPlot <- renderPlot({
     ggplot(exp_data_v2,aes(x=exp_data_v2$Sector_Type_Code,y=exp_data_v2$Total_Amount,color = exp_data_v2$Sector_Type_Code))+geom_point()+theme(axis.text.x = element_text(angle = 60, hjust = 1))
   })
@@ -301,8 +302,7 @@ server <- function(input, output) {
       ggtitle("Export Amounts and Consumer Price Index")
   })
   
-  df = data.frame("brand" = c("Tarım ve ormancılık","Tarım ve hayvancılık","Ormancılık ve tomrukçuluk","Balıkçılık","Madencilik ve taşocakçılığı","Maden kömürü, linyit"),
-                  "share" = c(.2090,.1580,.1210,.0930,.0860,.3320))
+  
   
   output$pieChart <- renderPlot({
     ggplot(df, aes(x="", y=share, fill=brand)) + geom_bar(stat="identity", width=1) 
