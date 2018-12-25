@@ -245,13 +245,13 @@ names(exp_data_final)[names(exp_data_final) == "Date"] <- "datadate"
 ui <- navbarPage("R Coders",
                  tabPanel("Import/Export Main Analysis",
                           sidebarLayout(position = "left",
-                            sidebarPanel("Compare Values",
-                                          checkboxInput("donum1", "Export", value = T),
-                                          checkboxInput("donum2", "Import", value = F),
-                                          checkboxInput("donum3", "Inflatıon", value = F),
-                                          sliderInput("wt1","Weight 1",min=1,max=10,value=1),
-                                          sliderInput("wt2","Weight 2",min=1,max=10,value=1),
-                                          sliderInput("wt3","Weight 3",min=1,max=10,value=1)
+                                        sidebarPanel("Compare Values",
+                                                     checkboxInput("donum1", "Export", value = T),
+                                                     checkboxInput("donum2", "Import", value = F),
+                                                     checkboxInput("donum3", "Inflatıon", value = F),
+                                                     sliderInput("wt1","Weight 1",min=1,max=10,value=1),
+                                                     sliderInput("wt2","Weight 2",min=1,max=10,value=1),
+                                                     sliderInput("wt3","Weight 3",min=1,max=10,value=1)
                                         ),
                                         mainPanel((plotOutput(outputId="plotgraph", width="900",height="600px"))))
                  ),
@@ -311,7 +311,7 @@ server <- function(input, output) {
   })
   
   output$ExpoloratoryPlot <- renderPlot({
-      ggplot(exp_data_final,aes(x=USD_Rate, y = Export_Total_Amount, size = Consumer_Price_Index_Yearly_Change, color=datadate)) +
+    ggplot(exp_data_final,aes(x=USD_Rate, y = Export_Total_Amount, size = Consumer_Price_Index_Yearly_Change, color=datadate)) +
       geom_point() +
       scale_x_log10() +
       theme_bw()+
@@ -327,7 +327,7 @@ server <- function(input, output) {
   ##pie = ggplot(df, aes(x="", y=share, fill=brand)) + geom_bar(stat="identity", width=1)
   
   output$UsdRatePlot <- renderPlot({
-      ggplot(imd_data_final_2,aes(x = USD_Rate, y = Import_Total_Amount, size = Consumer_Price_Index_Yearly_Change, color=Import_Year)) +
+    ggplot(imd_data_final_2,aes(x = USD_Rate, y = Import_Total_Amount, size = Consumer_Price_Index_Yearly_Change, color=Import_Year)) +
       geom_point() +
       scale_x_log10() +
       theme_bw()+
@@ -389,5 +389,3 @@ server <- function(input, output) {
 
 # Create Shiny app ----
 shinyApp(ui, server)
-
-
