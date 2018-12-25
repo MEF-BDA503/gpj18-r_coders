@@ -80,12 +80,15 @@ names(exp_data_final)[names(exp_data_final) == "Date"] <- "datadate"
 
 names(Inflation_data)[names(Inflation_data) == "Consumer_Price_Index_Montly_Change_%"] <- "Consumer_Price_Index"
 
+names(Inflation_data)[names(Inflation_data) == "Consumer_Price_Index_Yearly_Change_%"] <- "Consumer_Price_Index_Yearly_Change"
 
 Export_Import_union_data
 
 imp_data_final
 exp_data_final
+str(Inflation_data)
 Inflation_data
+
 
 #exp_data_final<-qplot(data = exp_data_final, aes(x = datadate, y = Total_Amount), color = "red") 
 
@@ -101,7 +104,7 @@ library(shiny)
 
 u <- shinyUI(fluidPage(
   titlePanel("Choose Metrics"),
-  sidebarLayout(position = "left",
+  sidebarLayout(position = "center",
                 sidebarPanel("Compare Values",
                              checkboxInput("donum1", "Export", value = T),
                              checkboxInput("donum2", "Import", value = F),
@@ -110,8 +113,7 @@ u <- shinyUI(fluidPage(
                              sliderInput("wt2","Weight 2",min=1,max=10,value=1),
                              sliderInput("wt3","Weight 3",min=1,max=10,value=1)),
                 
-                mainPanel("main panel",
-                          column(6,plotOutput(outputId="plotgraph", width="600px",height="800px"))
+                mainPanel(column(6,plotOutput(outputId="plotgraph", width="600px",height="500px"))
                 ))))
 
 
@@ -124,10 +126,7 @@ s <- shinyServer(function(input, output)
   pt1 <- reactive({
     if (!input$donum1) return(NULL)
     qplot(datadate, Total_Amount, data=exp_data_final, geom="area",fill=I("lightblue"),binwidth=0.2,main="Export Trend By Time",xlab="Date", ylab='Amount') 
-       #geom_vline(aes(intercept=mean(Total_Amount)),color="black", linetype="dashed", size=2) gets mean of that x axis
-    
-    
-  })
+    })
 
   pt2 <- reactive({
     if (!input$donum2) return(NULL)
@@ -135,8 +134,9 @@ s <- shinyServer(function(input, output)
   })
   pt3 <- reactive({
     if (!input$donum3) return(NULL)
-    qplot(Date, Consumer_Price_Index, data=Inflation_data, geom="area",fill=I("green"),binwidth=0.2,main="Inflation Trend By Time") 
+    qplot(Date, Consumer_Price_Index_Yearly_Change, data=Inflation_data, geom="area",fill=I("darkblue"),binwidth=0.2,main="Inflation Trend By Time") 
   })
+  
   output$plotgraph = renderPlot({
     ptlist <- list(pt1(),pt2(),pt3())
     wtlist <- c(input$wt1,input$wt2,input$wt3)
