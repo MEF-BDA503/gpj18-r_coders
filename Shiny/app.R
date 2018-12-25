@@ -6,6 +6,7 @@ library(stringr)
 library(rsconnect)
 library(plotly)
 library(gapminder)
+library(gridExtra)
 
 ## Import Analysis
 
@@ -36,11 +37,6 @@ print(import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$Januar
 print("--------")
 ##
 
-print("Sectors January + February")
-print(import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February))
-print("LAST")
-
-
 tmp<-tempfile(fileext=".xls")
 
 download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/import_1996_2018.xls?raw=true",mode = 'wb',destfile=tmp)
@@ -51,27 +47,10 @@ file.remove(tmp)
 
 #raw_data<-readxl::read_excel("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/import_1996_2018.xls",skip=7,col_names=FALSE)
 
-head(raw_data)
-tail(raw_data)
-
-
 colnames(raw_data) <- c("Year","Sector_Type_Code","Sector_Name",	"Total_Amount",	"January",	"February",	"March",	"April",	"May",	"June",	"July","August",	"September",	"October"	,"November","December")
-
-raw_data %>% drop_na()
-
-select(raw_data,everything())
-
-apply(raw_data,1,function(x)any(!is.na(x)))
-
-na.omit(raw_data, cols=c("Year", "Sector_Type_Code"))
-
-head(raw_data)
-
-raw_data <- raw_data[rowSums(is.na(raw_data)) != ncol(raw_data),]
 
 cols = c(4:15);    
 raw_data[,cols] = suppressWarnings(apply(raw_data[,cols], 2, function(x) as.numeric(as.character(x))));
-str(raw_data)
 
 raw_data %>% select(Sector_Name) %>% mutate(VADiff = raw_data$January + raw_data$February)
 
@@ -97,8 +76,6 @@ for (row in 1:nrow(raw_data)) {
 
 exp_data_v2 <- raw_data %>%
   slice(6:391)%>% filter(Sector_Name != "Toplam -Total")
-head(exp_data_v2)
-tail(exp_data_v2)
 
 Months <- c("January","February","March","April","May","June","July","August","September","October","November","December")
 
@@ -110,7 +87,7 @@ Randoms <- c(1020,1300,1130,1500,1080,2000,2200,1350,2500,1350,1220,1101)
 
 tmp<-tempfile(fileext=".rds")
 download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/imp_data_final.rds?raw=true?raw=true",destfile=tmp,mode = 'wb')
-imp_data_final<-read_rds(tmp)
+imp_data_final <- read_rds(tmp)
 file.remove(tmp)
 
 tmp<-tempfile(fileext=".rds")
@@ -210,6 +187,7 @@ imp_and_exp_data_bymonth <- gather(imp_and_exp_data_bymonth,
                                    key = "type",
                                    Export_Amount, Import_Amount)
 
+imd_data_final_2 <- imp_data_final
 #Rename column names
 colnames(imp_and_exp_data_bymonth) <- c("Date","Type","Amount")
 
@@ -217,26 +195,67 @@ colnames(imp_and_exp_data_bymonth) <- c("Date","Type","Amount")
 imp_and_exp_data_bymonth <- imp_and_exp_data_bymonth %>%
   filter(Date<'2018-11-01')
 
-p <- exp_data_final %>%
-  ggplot(aes(USD_Rate, Export_Total_Amount, size = Consumer_Price_Index_Yearly_Change, color=Export_Year)) +
-  geom_point() +
-  scale_x_log10() +
-  theme_bw()+
-  scale_size_area("Nitrogen") + 
-  xlab("USD Rate") +
-  ylab("Export Amount(1000$)") +
-  ggtitle("Export Amounts and Consumer Price Index")
-
-ggplotly(p)
-
-
 df = data.frame("brand" = c("Tarım ve ormancılık","Tarım ve hayvancılık","Ormancılık ve tomrukçuluk","Balıkçılık","Madencilik ve taşocakçılığı","Maden kömürü, linyit"),
                 "share" = c(.2090,.1580,.1210,.0930,.0860,.3320))
+
+##--------------##
+#Download rds files
+#get import data
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/imp_data_final.rds?raw=true",destfile=tmp,mode = 'wb')
+imp_data_final<-read_rds(tmp)
+file.remove(tmp)
+
+imp_data_final
+
+#get export data
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/exp_data_final.rds?raw=true",destfile=tmp,mode = 'wb')
+exp_data_final<-read_rds(tmp)
+file.remove(tmp)
+
+exp_data_final
+
+#Get export data
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/exp_data.rds?raw=true",destfile=tmp,mode = 'wb')
+exp_data<-read_rds(tmp)
+file.remove(tmp)
+
+#Get inflation data
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/Consumer_Inflation.rds?raw=true",destfile=tmp,mode = 'wb')
+Inflation_data<-read_rds(tmp)
+file.remove(tmp)
+
+colnames(imp_data)[which(colnames(imp_data) %in% c("Date") )] <- c("Import_Date")
+colnames(exp_data)[which(colnames(exp_data) %in% c("Date") )] <- c("Export_Date")
+
+#a nes column type
+imp_data_final<- mutate(imp_data_final,Type="Import")
+exp_data_final<- mutate(exp_data_final,Type="Export")
+Export_Import_union_data <- rbind.fill(imp_data_final,exp_data_final)
+
+names(imp_data_final)[names(imp_data_final) == "Date"] <- "datadate"
+
+names(exp_data_final)[names(exp_data_final) == "Date"] <- "datadate"
 
 ## UI Part ##
 
 ui <- navbarPage("R Coders",
                  tabPanel("Import/Export Main Analysis",
+                          sidebarLayout(position = "left",
+                            sidebarPanel("Compare Values",
+                                          checkboxInput("donum1", "Export", value = T),
+                                          checkboxInput("donum2", "Import", value = F),
+                                          checkboxInput("donum3", "Inflatıon", value = F),
+                                          sliderInput("wt1","Weight 1",min=1,max=10,value=1),
+                                          sliderInput("wt2","Weight 2",min=1,max=10,value=1),
+                                          sliderInput("wt3","Weight 3",min=1,max=10,value=1)
+                                        ),
+                                        mainPanel((plotOutput(outputId="plotgraph", width="900",height="600px"))))
+                 ),
+                 tabPanel("Product Based Analysis",
                           sidebarLayout(
                             sidebarPanel(
                               sliderInput("Number",
@@ -292,7 +311,7 @@ server <- function(input, output) {
   })
   
   output$ExpoloratoryPlot <- renderPlot({
-      ggplot(exp_data_final,aes(x=USD_Rate, y = Export_Total_Amount, size = Consumer_Price_Index_Yearly_Change, color=Export_Year)) +
+      ggplot(exp_data_final,aes(x=USD_Rate, y = Export_Total_Amount, size = Consumer_Price_Index_Yearly_Change, color=datadate)) +
       geom_point() +
       scale_x_log10() +
       theme_bw()+
@@ -302,15 +321,13 @@ server <- function(input, output) {
       ggtitle("Export Amounts and Consumer Price Index")
   })
   
-  
-  
   output$pieChart <- renderPlot({
     ggplot(df, aes(x="", y=share, fill=brand)) + geom_bar(stat="identity", width=1) 
   })
   ##pie = ggplot(df, aes(x="", y=share, fill=brand)) + geom_bar(stat="identity", width=1)
   
   output$UsdRatePlot <- renderPlot({
-      ggplot(imp_data_final,aes(USD_Rate, Import_Total_Amount, size = Consumer_Price_Index_Yearly_Change, color=Import_Year)) +
+      ggplot(imd_data_final_2,aes(x = USD_Rate, y = Import_Total_Amount, size = Consumer_Price_Index_Yearly_Change, color=Import_Year)) +
       geom_point() +
       scale_x_log10() +
       theme_bw()+
@@ -319,7 +336,6 @@ server <- function(input, output) {
       ylab("Import Amount(1000$)") +
       ggtitle("Import Amounts and Consumer Price Index")
   })
-  
   
   output$selected_var <- renderText({
     paste("You have selected",input$Number)
@@ -342,7 +358,35 @@ server <- function(input, output) {
     head(import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February) %>% filter(VADiff>1000000 & Sector_Name != 'Toplam -Total') %>% distinct(Sector_Name), 10)
   })
   
+  set.seed(600)
+  
+  pt1 <- reactive({
+    if (!input$donum1) return(NULL)
+    qplot(datadate, Export_Total_Amount, data=exp_data_final, geom="area",fill=I("lightblue"),binwidth=0.2,main="Export Trend By Time",xlab="Date", ylab='Amount') 
+  })
+  
+  pt2 <- reactive({
+    if (!input$donum2) return(NULL)
+    qplot(datadate, Import_Total_Amount, data=imp_data_final, geom="area",fill=I("red"),binwidth=0.2,main="Export Trend By Time",xlab="Date", ylab='Amount') 
+  })
+  pt3 <- reactive({
+    if (!input$donum3) return(NULL)
+    qplot(Date, Consumer_Price_Index_Yearly_Change, data=Inflation_data, geom="area",fill=I("darkblue"),binwidth=0.2,main="Inflation Trend By Time",xlab="Date", ylab='Consumer_Price_Index_Yearly_Change') 
+  })
+  
+  output$plotgraph = renderPlot({
+    ptlist <- list(pt1(),pt2(),pt3())
+    wtlist <- c(input$wt1,input$wt2,input$wt3)
+    # remove the null plots from ptlist and wtlist
+    to_delete <- !sapply(ptlist,is.null)
+    ptlist <- ptlist[to_delete] 
+    wtlist <- wtlist[to_delete]
+    if (length(ptlist)==0) return(NULL)
+    
+    grid.arrange(grobs=ptlist,widths=wtlist,ncol=length(ptlist))
+  })
 }
+
 # Create Shiny app ----
 shinyApp(ui, server)
 
