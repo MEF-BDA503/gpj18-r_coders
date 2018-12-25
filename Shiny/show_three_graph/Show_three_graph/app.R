@@ -49,6 +49,27 @@ file.remove(tmp)
 
 
 
+
+#US_Dollar_Montly_Rate
+#Download Raw Data
+# Create a temporary file
+tmp<-tempfile(fileext=".xlsx")
+# Download file from repository to the temp file
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/US_Dollar_Montly_Rate.xlsx?raw=true",mode="wb",destfile=tmp)
+# Read that excel file using readxl package's read_excel function. You might need to adjust the parameters (skip, col_names) according to your raw file's format.
+raw_data<-readxl::read_excel(tmp,skip=7,col_names=FALSE)
+# Remove the temp file
+file.remove(tmp)
+
+colnames(raw_data) <- c("Date","Dollar")
+US_Dollar_Montly_Rate<- raw_data 
+
+saveRDS(US_Dollar_Montly_Rate, file = "US_Dollar_Montly_Rate.rds")
+
+
+US_Dollar_Montly_Rate
+
+
 colnames(imp_data)[which(colnames(imp_data) %in% c("Date") )] <- c("Import_Date")
 colnames(exp_data)[which(colnames(exp_data) %in% c("Date") )] <- c("Export_Date")
 
@@ -96,6 +117,30 @@ Inflation_data
 #Inflation_data<-geom_line(data = Inflation_data, aes(x = Date, y = Consumer_Price_Index_Montly_Change), color = "green") 
 
 
+
+
+
+tmp<-tempfile(fileext=".xlsx")
+# Download file from repository to the temp file
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/US_Dollar_Montly_Rate.xlsx?raw=true",mode="wb",destfile=tmp)
+# Read that excel file using readxl package's read_excel function. You might need to adjust the parameters (skip, col_names) according to your raw file's format.
+raw_data<-readxl::read_excel(tmp,skip=7,col_names=FALSE)
+# Remove the temp file
+
+
+
+colnames(raw_data) <- c("Date","Dollar")
+# Now we replace NA values with 0 and label the time period with year and month, so when we merge the data we won't be confused.
+
+saveRDS(US_Dollar_Montly_Rate, file = "US_Dollar_Montly_Rate.rds")
+
+
+
+
+
+
+
+
 library(shiny)
 
 
@@ -109,20 +154,22 @@ u <- shinyUI(fluidPage(
                              checkboxInput("donum1", "Export", value = T),
                              checkboxInput("donum2", "Import", value = F),
                              checkboxInput("donum3", "Inflatıon", value = F),
-                             sliderInput("wt1","Weight 1",min=1,max=10,value=1),
+                            sliderInput("wt1","Weight 1",min=1,max=10,value=1),
                              sliderInput("wt2","Weight 2",min=1,max=10,value=1),
-                             sliderInput("wt3","Weight 3",min=1,max=10,value=1)),
+                             sliderInput("wt3","Weight 3",min=1,max=10,value=1)
+                            ),
                 
-                mainPanel(column(6,plotOutput(outputId="plotgraph", width="600px",height="500px"))
-                ))))
+                mainPanel(textOutput(""),column(plotOutput(outputId="plotgraph", width="400",height="500px"))))
+  
+  ))
+
+
 
 
 
 s <- shinyServer(function(input, output) 
 {
 
-  
-  set.seed(123)
   pt1 <- reactive({
     if (!input$donum1) return(NULL)
     qplot(datadate, Total_Amount, data=exp_data_final, geom="area",fill=I("lightblue"),binwidth=0.2,main="Export Trend By Time",xlab="Date", ylab='Amount') 
@@ -130,13 +177,14 @@ s <- shinyServer(function(input, output)
 
   pt2 <- reactive({
     if (!input$donum2) return(NULL)
-    qplot(datadate, Total_Amount, data=imp_data_final, geom="area",fill=I("red"),binwidth=0.2,main="Export Trend By Time") 
+    qplot(datadate, Total_Amount, data=imp_data_final, geom="area",fill=I("red"),binwidth=0.2,main="Export Trend By Time",xlab="Date", ylab='Amount') 
   })
   pt3 <- reactive({
     if (!input$donum3) return(NULL)
-    qplot(Date, Consumer_Price_Index_Yearly_Change, data=Inflation_data, geom="area",fill=I("darkblue"),binwidth=0.2,main="Inflation Trend By Time") 
+    qplot(Date, Consumer_Price_Index_Yearly_Change, data=Inflation_data, geom="area",fill=I("darkblue"),binwidth=0.2,main="Inflation Trend By Time",xlab="Date", ylab='Consumer_Price_Index_Yearly_Change') 
   })
   
+
   output$plotgraph = renderPlot({
     ptlist <- list(pt1(),pt2(),pt3())
     wtlist <- c(input$wt1,input$wt2,input$wt3)
