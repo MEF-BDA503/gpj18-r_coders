@@ -31,7 +31,7 @@ Export Data
 # Create a temporary file
 tmp=tempfile(fileext=".xls")
 # Download file from repository to the temp file
-download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/export_1996_2018.xls?raw=true",destfile=tmp,mode='wb')
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/export_1996_2018.xls?raw=true",destfile=tmp,mode='wb')
 # Read that excel file.
 export_data <- read_excel(tmp)
 # Remove the temp file
@@ -44,7 +44,7 @@ Import Data
 # Create a temporary file
 tmp=tempfile(fileext=".xls")
 # Download file from repository to the temp file
-download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/import_1996_2018.xls?raw=true",destfile=tmp,mode='wb')
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/import_1996_2018.xls?raw=true",destfile=tmp,mode='wb')
 # Read that excel file.
 import_data <- read_excel(tmp)
 # Remove the temp file
@@ -61,10 +61,10 @@ import_data <- read_excel("import_1996_2018.xls")
 
 Download the rds files from our github repository.
 ```{r eval=FALSE}
-githubURL_data <- ("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/import_data/Enflasyon_Data.rds")
-download.file(githubURL_data,"Enflasyon_Data.rds", method="curl")
-enflasyon_data <- readRDS("Enflasyon_Data.rds")
-
+tmp<-tempfile(fileext=".rds")
+download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Rds)/Producer_Inflation.rds?raw=true?raw=true",destfile=tmp,mode = 'wb')
+producer_inf_data<-read_rds(tmp)
+file.remove(tmp)
 
 githubURL_data <- ("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Rds)/Consumer_Inflation.rds?raw=true")
 download.file(githubURL_data,"Consumer_Inflation.rds", method="curl")
@@ -208,6 +208,7 @@ for (row in 1:nrow(imp_data)) {
 }
 ```
 
+
 Remove the unnecessary rows
 ```{r eval=FALSE}
 exp_data_v2 <- exp_data %>%
@@ -336,11 +337,16 @@ str(us_rate_data)
 str(cons_inf_data)
 cons_inf_data$Date <- as.Date(as.character(as.POSIXct(cons_inf_data$Date)))
 str(cons_inf_data)
+
+str(cons_inf_data)
+producer_inf_data$Date <- as.Date(as.character(as.POSIXct(producer_inf_data$Date)))
+str(cons_inf_data)
 ```
 
 
 Join data
 ```{r eval=FALSE}
+install.packages("tidyverse")
 library("tidyverse")
 exp_data_v2 <-
 exp_data_without_NA %>%
@@ -359,8 +365,9 @@ exp_data_v4 <- inner_join(exp_data_v3,us_rate_data, by=c("Date" = "Date"))
 imp_data_v3 <- inner_join(imp_data_v2,cons_inf_data, by=c("Date" = "Date"))
 
 imp_data_v4 <- inner_join(imp_data_v3,us_rate_data, by=c("Date" = "Date"))
+
 ```
-exp_data_v3
+
 
 Change column names
 ```{r eval=FALSE}
