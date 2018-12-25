@@ -414,10 +414,10 @@ file.remove(tmp)</code></pre>
 export_data &lt;- read_excel(&quot;export_1996_2018.xls&quot;)
 import_data &lt;- read_excel(&quot;import_1996_2018.xls&quot;)</code></pre>
 <p>Download the rds files from our github repository.</p>
-<pre class="r"><code>githubURL_data &lt;- (&quot;https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/import_data/Enflasyon_Data.rds&quot;)
-download.file(githubURL_data,&quot;Enflasyon_Data.rds&quot;, method=&quot;curl&quot;)
-enflasyon_data &lt;- readRDS(&quot;Enflasyon_Data.rds&quot;)
-
+<pre class="r"><code>tmp&lt;-tempfile(fileext=&quot;.rds&quot;)
+download.file(&quot;https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Rds)/Producer_Inflation.rds?raw=true?raw=true&quot;,destfile=tmp,mode = &#39;wb&#39;)
+producer_inf_data&lt;-read_rds(tmp)
+file.remove(tmp)
 
 githubURL_data &lt;- (&quot;https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Rds)/Consumer_Inflation.rds?raw=true&quot;)
 download.file(githubURL_data,&quot;Consumer_Inflation.rds&quot;, method=&quot;curl&quot;)
@@ -595,9 +595,14 @@ str(us_rate_data)
 
 str(cons_inf_data)
 cons_inf_data$Date &lt;- as.Date(as.character(as.POSIXct(cons_inf_data$Date)))
+str(cons_inf_data)
+
+str(cons_inf_data)
+producer_inf_data$Date &lt;- as.Date(as.character(as.POSIXct(producer_inf_data$Date)))
 str(cons_inf_data)</code></pre>
 <p>Join data</p>
-<pre class="r"><code>library(&quot;tidyverse&quot;)
+<pre class="r"><code>install.packages(&quot;tidyverse&quot;)
+library(&quot;tidyverse&quot;)
 exp_data_v2 &lt;-
 exp_data_without_NA %&gt;%
   group_by(Date) %&gt;%
@@ -615,7 +620,6 @@ exp_data_v4 &lt;- inner_join(exp_data_v3,us_rate_data, by=c(&quot;Date&quot; = &
 imp_data_v3 &lt;- inner_join(imp_data_v2,cons_inf_data, by=c(&quot;Date&quot; = &quot;Date&quot;))
 
 imp_data_v4 &lt;- inner_join(imp_data_v3,us_rate_data, by=c(&quot;Date&quot; = &quot;Date&quot;))</code></pre>
-<p>exp_data_v3</p>
 <p>Change column names</p>
 <pre class="r"><code>colnames(exp_data_v4) &lt;- c(&quot;Date&quot;,&quot;Export_Total_Amount&quot;,&quot;Consumer_Price_Index_Yearly_Change&quot;,&quot;Consumer_Price_Index_Monthly_Change&quot;,&quot;USD_Rate&quot;)
 
