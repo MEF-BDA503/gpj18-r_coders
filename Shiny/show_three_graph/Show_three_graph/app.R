@@ -12,6 +12,7 @@ library(plyr)
 require(devtools)
 install_github("rCharts", "ramnathv")
 
+
 #Download rds files
 #get import data
 tmp<-tempfile(fileext=".rds")
@@ -143,13 +144,15 @@ saveRDS(US_Dollar_Montly_Rate, file = "US_Dollar_Montly_Rate.rds")
 
 library(shiny)
 
+library(ggplot2)
+library(gridExtra)
 
 #plotOutput("distPlot", hover = "plot_hover", hoverDelay = 0)
 
 
 u <- shinyUI(fluidPage(
   titlePanel("Choose Metrics"),
-  sidebarLayout(position = "center",
+  sidebarLayout(position = "left",
                 sidebarPanel("Compare Values",
                              checkboxInput("donum1", "Export", value = T),
                              checkboxInput("donum2", "Import", value = F),
@@ -159,7 +162,7 @@ u <- shinyUI(fluidPage(
                              sliderInput("wt3","Weight 3",min=1,max=10,value=1)
                             ),
                 
-                mainPanel(textOutput(""),column(plotOutput(outputId="plotgraph", width="400",height="500px"))))
+                mainPanel((plotOutput(outputId="plotgraph", width="400",height="500px"))))
   
   ))
 
@@ -169,6 +172,7 @@ u <- shinyUI(fluidPage(
 
 s <- shinyServer(function(input, output) 
 {
+  scale(150)
 
   pt1 <- reactive({
     if (!input$donum1) return(NULL)
