@@ -85,19 +85,17 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 [For US Dollar Montly Rate Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/US_Dollar_Montly_Rate.xlsx)
 
-**RDS Data Set**
 [For RDS Files Click](https://github.com/MEF-BDA503/gpj18-r_coders/tree/master/Data_Sources_Rds)
 
 
 ***
 ## DATA PREPERATION AND ANALYSIS
 *** 
-**Data Preperation and Cleaning**
+
 [Data Preparation and Cleaning HTML File](https://github.com/MEF-BDA503/gpj18-r_coders/tree/master/Analysis_Codes_and_RMD_HTML/Data_Preparation.html)
-**ANALSIS WITH R**
+
 [Analysis With R HTML File](https://github.com/MEF-BDA503/gpj18-r_coders/tree/master/Analysis_Codes_and_RMD_HTML/Explotary_Data_Analysis.html)
 
-**RMD Files**
 [RMD Files](https://github.com/MEF-BDA503/gpj18-r_coders/tree/master/Analysis_Codes_and_RMD_HTML)
 
 
