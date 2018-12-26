@@ -118,6 +118,8 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 **PROJECT PRESENTATION**
 
+[For Project Presentation Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Analysis_Document/BIG_DATA_ESSENTIALS.pptx) 
+
 
 
 ***
