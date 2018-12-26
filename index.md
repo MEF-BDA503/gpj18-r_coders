@@ -106,7 +106,7 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 ## SHINY ##
 [For Shiny Code Click](https://github.com/MEF-BDA503/gpj18-r_coders/tree/master/Shiny/Final_Shiny/Dashboard_Final)
 
-shiny::runGist(https://github.com/MEF-BDA503/gpj18-r_coders/tree/master/Shiny/Final_Shiny/Dashboard_Final/app.R)
+[For Shiny Web Page Click] (http://127.0.0.1:5257/)
 
 ## PROJECT DOCUMENTATION
 *** 
