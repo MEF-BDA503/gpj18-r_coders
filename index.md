@@ -94,7 +94,7 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 [Data Preparation and Cleaning HTML File](https://github.com/MEF-BDA503/gpj18-r_coders/tree/master/Analysis_Codes_and_RMD_HTML/Data_Preparation.html)
 
-[Analysis With R HTML File](https://github.com/MEF-BDA503/gpj18-r_coders/tree/master/Analysis_Codes_and_RMD_HTML/Explotary_Data_Analysis.html)
+[Analysis With R HTML File](Analysis_Codes_and_RMD_HTML/Explotary_Data_Analysis.html)
 
 [RMD Files](https://github.com/MEF-BDA503/gpj18-r_coders/tree/master/Analysis_Codes_and_RMD_HTML)
 
