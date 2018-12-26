@@ -112,6 +112,8 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 [For Project Report in DOC Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Project%20Report%20and%20Presentation/Project_Report.docx)
 
+runApp()
+
 **PROJECT PRESENTATION**
 
 
