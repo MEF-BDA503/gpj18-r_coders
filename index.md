@@ -104,7 +104,7 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 ## DATA VISUALIZATION WITH R
 *** 
 ## SHINY ##
-[For Shiny Click](https://rcoders.shinyapps.io/shiny/)
+[For Shiny Click](https://github.com/MEF-BDA503/gpj18-r_coders/tree/master/Shiny/Final_Shiny/Dashboard_Final)
 
 ## PROJECT DOCUMENTATION
 *** 
