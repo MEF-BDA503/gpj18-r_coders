@@ -13,14 +13,6 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 ## PROJECT TEAM MEMBERS
 ***
 
-[comment]: <>![Screenshot](img/Merve_Ozen.PNG)
-[comment]: <>![Screenshot](img/Leyla_Yigit.PNG)
-[comment]: <>![Screenshot](img/Mercan_Karacabey.PNG)
-[comment]: <>![Screenshot](img/Mehmet_Ak.PNG)
-[comment]: <>![Screenshot](img/Büşra_Aydemir.PNG)
-
-
-
 **GITHUB PAGES**
 
 -[Büşra Nur Aydemir](https://mef-bda503.github.io/pj18-aydemirbusra/) 
