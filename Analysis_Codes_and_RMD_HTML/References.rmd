@@ -10,8 +10,12 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ``` 
 
-
-
+library(tidyverse)
+library(dplyr)
+library(readxl)
+library(dplyr )
+library(tidyverse )
+library(lubridate )
 #EXCEL DATA SOURCES 
 
 *IMPORT DATA SOURCES:
@@ -79,7 +83,7 @@ knitr::opts_chunk$set(echo = TRUE)
 [Import,export perspective](https://atlas.media.mit.edu/en/profile/country/tur/)
 
 #Export, Import Product Range 
-[Export, Import Product Range Shiny Development]("https://shiny.rstudio.com/gallery/word-cloud.html")
+[Export, Import Product Range Shiny Development]("https://shiny.rstudio.com")
 
 
 ***************************************************************************************************************************************************************************************

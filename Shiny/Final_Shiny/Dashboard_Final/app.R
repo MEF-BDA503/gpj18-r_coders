@@ -1,4 +1,3 @@
-library(shiny)
 library(readxl)
 library(tidyverse)
 library(ggplot2)
@@ -26,15 +25,17 @@ cols = c(4:15);
 import_data[,cols] = suppressWarnings(apply(import_data[,cols], 2, function(x) as.numeric(as.character(x))));
 str(import_data)
 
+print("Find Maximum Values")
+print("*******************")
 print(import_data %>% select(Sector_Name,January,February,March)) %>% mutate(VATotal = import_data$January + import_data$February + import_data$March) %>% filter(VATotal > 3000000)
-
+print("*******************")
 
 ## Print No Import Sectors
 import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% distinct()
-
+print("1--------1")
 print(import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% filter(!(is.na(Sector_Name))) %>% distinct())
-
-
+print("--------")
+##
 
 tmp<-tempfile(fileext=".xls")
 
@@ -43,6 +44,8 @@ download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sou
 raw_data<-readxl::read_excel(tmp,skip=7,col_names=FALSE)
 
 file.remove(tmp)
+
+#raw_data<-readxl::read_excel("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/import_1996_2018.xls",skip=7,col_names=FALSE)
 
 colnames(raw_data) <- c("Year","Sector_Type_Code","Sector_Name",	"Total_Amount",	"January",	"February",	"March",	"April",	"May",	"June",	"July","August",	"September",	"October"	,"November","December")
 
@@ -184,7 +187,6 @@ imp_and_exp_data_bymonth <- gather(imp_and_exp_data_bymonth,
                                    key = "type",
                                    Export_Amount, Import_Amount)
 
-exp_data_final_2 <- exp_data_final
 imd_data_final_2 <- imp_data_final
 #Rename column names
 colnames(imp_and_exp_data_bymonth) <- c("Date","Type","Amount")
@@ -221,94 +223,22 @@ exp_data<-read_rds(tmp)
 file.remove(tmp)
 
 #Get inflation data
-#Download rds files
-#get import data
-tmp<-tempfile(fileext=".rds")
-download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/imp_data_final.rds?raw=true",destfile=tmp,mode = 'wb')
-imp_data_final<-read_rds(tmp)
-file.remove(tmp)
-
-imp_data_final
-
-#get export data
-tmp<-tempfile(fileext=".rds")
-download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/exp_data_final.rds?raw=true",destfile=tmp,mode = 'wb')
-exp_data_final<-read_rds(tmp)
-file.remove(tmp)
-
-exp_data_final
-
-#get export data
-tmp<-tempfile(fileext=".rds")
-download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/exp_data.rds?raw=true",destfile=tmp,mode = 'wb')
-exp_data<-read_rds(tmp)
-file.remove(tmp)
-
-#get inflation data
 tmp<-tempfile(fileext=".rds")
 download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/Consumer_Inflation.rds?raw=true",destfile=tmp,mode = 'wb')
 Inflation_data<-read_rds(tmp)
 file.remove(tmp)
 
-#Get $ data
-tmp<-tempfile(fileext=".rds")
-download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Rds/US_Dollar_Montly_Rate.rds?raw=true",destfile=tmp,mode = 'wb')
-US_Dollar_data<-read_rds(tmp)
-file.remove(tmp)
-
-
-
-
-#US_Dollar_Montly_Rate
-#Download Raw Data
-# Create a temporary file
-tmp<-tempfile(fileext=".xlsx")
-# Download file from repository to the temp file
-download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/US_Dollar_Montly_Rate.xlsx?raw=true",mode="wb",destfile=tmp)
-# Read that excel file using readxl package's read_excel function. You might need to adjust the parameters (skip, col_names) according to your raw file's format.
-raw_data<-readxl::read_excel(tmp,skip=7,col_names=FALSE)
-# Remove the temp file
-file.remove(tmp)
-
-colnames(raw_data) <- c("Date","Dollar")
-US_Dollar_Montly_Rate<- raw_data 
-
-saveRDS(US_Dollar_Montly_Rate, file = "US_Dollar_Montly_Rate.rds")
-
-
-US_Dollar_Montly_Rate
-
-
 colnames(imp_data)[which(colnames(imp_data) %in% c("Date") )] <- c("Import_Date")
 colnames(exp_data)[which(colnames(exp_data) %in% c("Date") )] <- c("Export_Date")
-
-(imp_data)
-head(exp_data)
-Inflation_data
-US_Dollar_data
-imp_data_final
-exp_data_final
 
 #a nes column type
 imp_data_final<- mutate(imp_data_final,Type="Import")
 exp_data_final<- mutate(exp_data_final,Type="Export")
-#Export_Import_union_data <- rbind.fill(imp_data_final,exp_data_final)
-#print.data.frame(Export_Import_union_sektor_data)
-#change column name as amount
-names(Export_Import_union_data)[names(Export_Import_union_data) == "Export_Total_Amount"] <- "Total_Amount"
-
-names(imp_data_final)[names(imp_data_final) == "Export_Total_Amount"] <- "Total_Amount"
-
-names(exp_data_final)[names(exp_data_final) == "Export_Total_Amount"] <- "Total_Amount"
-
+Export_Import_union_data <- rbind.fill(imp_data_final,exp_data_final)
 
 names(imp_data_final)[names(imp_data_final) == "Date"] <- "datadate"
 
 names(exp_data_final)[names(exp_data_final) == "Date"] <- "datadate"
-
-names(Inflation_data)[names(Inflation_data) == "Consumer_Price_Index_Montly_Change_%"] <- "Consumer_Price_Index"
-
-names(Inflation_data)[names(Inflation_data) == "Consumer_Price_Index_Yearly_Change_%"] <- "Consumer_Price_Index_Yearly_Change"
 
 ## UI Part ##
 
@@ -323,57 +253,48 @@ ui <- navbarPage("R Coders",
                                                      sliderInput("wt2","Weight 2",min=1,max=10,value=1),
                                                      sliderInput("wt3","Weight 3",min=1,max=10,value=1)
                                         ),
-                                        mainPanel((plotOutput(outputId="plotgraph", width="900",height="600px")),
-                                                  h4("A country's current account falls into a deficit when imports of goods and services are larger than exports, so given the tendencies outlined in the above chart, it's of little surprise that the current account shifts to a surplus soon after major currency devaluation. Imports have suddenly got a lot more expensive.
-                                                  The plunge in Turkey's lira and subsequent reversal of last year's credit boom has had a similar effect of grinding domestic economic activity. 
-                                                  Because of all these effects inflation rate is simultaneously increasing."
-                                                  )))
+                                        mainPanel((plotOutput(outputId="plotgraph", width="900",height="600px"))))
                  ),
-                 navbarMenu("Product Analysis",tabPanel("Export- Product",mainPanel(
-                   tabsetPanel(
-                     tabPanel("Plot", plotOutput("distPlot"))
-                   )
-                 )),
-                 tabPanel("Import - Product",mainPanel(
-                   tabsetPanel(
-                     tabPanel("Plot", plotOutput("distPlot_1")),
-                     tabPanel("Summary", verbatimTextOutput("selected_var"),verbatimTextOutput("summary")),
-                     tabPanel("Table", tableOutput("table"))
-                   )
-                 ))
-                 ),
+                 tabPanel("Product Based Analysis",
+                          sidebarLayout(
+                            sidebarPanel(
+                              sliderInput("Number",
+                                          "Participants:",
+                                          min = 2010,
+                                          max = 2018,
+                                          value = c(2015),sep ="",step=1),
+                              
+                              selectInput("exp_data_v2$Sector_Name", label="Kırılımlar", choices = c("All",exp_data_v2$Sector_Name))
+                              
+                              
+                              #sliderInput("votes","Min Votes",min=min(shiny_movie_set$votes),max=max(shiny_movie_set$votes),value = min(shiny_movie_set$votes))
+                              # Show a plot of the generated distribution
+                            ),
+                            mainPanel(
+                              tabsetPanel(
+                                tabPanel("Plot", plotOutput("distPlot"),h6("Episode IV", align = "center"),
+                                         h4("Rebel spaceships, striking", align = "center"),
+                                         h3("from a hidden base, have won", align = "center")),
+                                tabPanel("Summary", verbatimTextOutput("selected_var"),verbatimTextOutput("summary")),
+                                tabPanel("Table", tableOutput("table"))
+                              )
+                            ))),
                  tabPanel("Import/Export Change Over Time",mainPanel(tabsetPanel(tabPanel("Plot1",plotOutput("importExportPlot")),
-                                                                                 tabPanel("Plot2",plotOutput("ExpoloratoryPlot"),
-                                                                                 h4("The initial impact crops up in the import data as consumers' buying power contracts, bringing economic output down with it. Following the depreciation at time t, imports fall sharply and export volumes increase as local goods become more competitively priced than those denominated in stronger currencies",align = "center")),
+                                                                                 tabPanel("Plot2",plotOutput("ExpoloratoryPlot")),
                                                                                  tabPanel("Plot3",plotOutput("UsdRatePlot"))))),
+                 tabPanel("Pie Chart",plotOutput("pieChart")),
                  navbarMenu("More",
-                            tabPanel("Export- Details",plotOutput("pieChart"),
-                                                                                         # tags$div(class="header", checked=NA,
-                                                                                         # list(
-                                                                                         # tags$p("Ready to take the Shiny tutorial? If so"),
-                                                                                         # tags$a(href="shiny.rstudio.com/tutorial", "Click Here!"),
-                                                                                         # "Thank you",
-                                                                                         # tags$li("1.eleman"),
-                                                                                         # tags$li("2.eleman")
-                                                                                       )),
-                            tabPanel("Import- Details",plotOutput("pieChart1")
-                                                                                        # ,tags$div(class="header", checked=NA,
-                                                                                        # list(
-                                                                                        #   tags$p("Ready to take the Shiny tutorial? If so"),
-                                                                                        #   tags$a(href="shiny.rstudio.com/tutorial", "Click Here!"),
-                                                                                        #   "Thank you",
-                                                                                        #   tags$li("1.eleman"),
-                                                                                        #   tags$li("2.eleman")
-                                                                                        )
+                            tabPanel("Import-Details",tabsetPanel(tableOutput("table_import"))),
+                            tabPanel("Export-Details",tableOutput("table_export")))
 )
+
+
+
+
 ## Server Part ##
 server <- function(input, output) {
   
   output$distPlot <- renderPlot({
-    ggplot(exp_data_v2,aes(x=exp_data_v2$Sector_Type_Code,y=exp_data_v2$Total_Amount,color = exp_data_v2$Sector_Type_Code))+geom_point()+theme(axis.text.x = element_text(angle = 60, hjust = 1))
-  })
-  
-  output$distPlot_1 <- renderPlot({
     ggplot(exp_data_v2,aes(x=exp_data_v2$Sector_Type_Code,y=exp_data_v2$Total_Amount,color = exp_data_v2$Sector_Type_Code))+geom_point()+theme(axis.text.x = element_text(angle = 60, hjust = 1))
   })
   
@@ -383,7 +304,7 @@ server <- function(input, output) {
                y=Amount,
                color=Type)) +
       geom_line()+
-      scale_size_area("Export Amount") + 
+      scale_size_area("Nitrogen") + 
       xlab("Import/Export Date") +
       ylab("Amount(1000$)") +
       ggtitle("Import & Export Amount")
@@ -394,17 +315,13 @@ server <- function(input, output) {
       geom_point() +
       scale_x_log10() +
       theme_bw()+
-      scale_size_area("Export Amount") + 
+      scale_size_area("Nitrogen") + 
       xlab("USD Rate") +
       ylab("Export Amount(1000$)") +
       ggtitle("Export Amounts and Consumer Price Index")
   })
   
   output$pieChart <- renderPlot({
-    ggplot(df, aes(x="", y=share, fill=brand)) + geom_bar(stat="identity", width=1) 
-  })
-  
-  output$pieChart1 <- renderPlot({
     ggplot(df, aes(x="", y=share, fill=brand)) + geom_bar(stat="identity", width=1) 
   })
   ##pie = ggplot(df, aes(x="", y=share, fill=brand)) + geom_bar(stat="identity", width=1)
@@ -414,7 +331,7 @@ server <- function(input, output) {
       geom_point() +
       scale_x_log10() +
       theme_bw()+
-      scale_size_area("Import Amount") + 
+      scale_size_area("Nitrogen") + 
       xlab("USD Rate") +
       ylab("Import Amount(1000$)") +
       ggtitle("Import Amounts and Consumer Price Index")
@@ -425,7 +342,7 @@ server <- function(input, output) {
   })
   
   output$table <- renderTable({
-    head(import_data %>% select(Sector_Name,Sector_Type_Code), 100) %>% filter(!is.na(Sector_Name) & Sector_Name != 'Toplam -Total')  %>% distinct() 
+    head(import_data %>% select(Sector_Name,Total_Amount), 10)
   })
   
   output$summary <- renderPrint({
@@ -445,12 +362,12 @@ server <- function(input, output) {
   
   pt1 <- reactive({
     if (!input$donum1) return(NULL)
-    qplot(datadate, Total_Amount, data=exp_data_final, geom="area",fill=I("lightblue"),binwidth=0.2,main="Export Trend By Time",xlab="Date", ylab='Amount') 
+    qplot(datadate, Export_Total_Amount, data=exp_data_final, geom="area",fill=I("lightblue"),binwidth=0.2,main="Export Trend By Time",xlab="Date", ylab='Amount') 
   })
   
   pt2 <- reactive({
     if (!input$donum2) return(NULL)
-    qplot(datadate, Total_Amount, data=imp_data_final, geom="area",fill=I("red"),binwidth=0.2,main="Export Trend By Time",xlab="Date", ylab='Amount') 
+    qplot(datadate, Import_Total_Amount, data=imp_data_final, geom="area",fill=I("red"),binwidth=0.2,main="Export Trend By Time",xlab="Date", ylab='Amount') 
   })
   pt3 <- reactive({
     if (!input$donum3) return(NULL)
@@ -469,5 +386,6 @@ server <- function(input, output) {
     grid.arrange(grobs=ptlist,widths=wtlist,ncol=length(ptlist))
   })
 }
+
 # Create Shiny app ----
 shinyApp(ui, server)

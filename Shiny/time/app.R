@@ -7,8 +7,10 @@ library(stringr)
 library(rsconnect)
 library(plyr)
 
+
 require(devtools)
 install_github("rCharts", "ramnathv")
+
 
 #Download rds files
 #get import data

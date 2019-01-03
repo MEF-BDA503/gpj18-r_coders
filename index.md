@@ -13,14 +13,6 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 ## PROJECT TEAM MEMBERS
 ***
 
-![Screenshot](img/Merve_Ozen.PNG)
-![Screenshot](img/Leyla_Yigit.PNG)
-![Screenshot](img/Mercan_Karacabey.PNG)
-![Screenshot](img/Mehmet_Ak.PNG)
-![Screenshot](img/Büşra_Aydemir.PNG)
-
-
-
 **GITHUB PAGES**
 
 -[Büşra Nur Aydemir](https://mef-bda503.github.io/pj18-aydemirbusra/) 
@@ -85,34 +77,39 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 
 [For US Dollar Montly Rate Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources_Excel/US_Dollar_Montly_Rate.xlsx)
 
-**RDS Data Set**
-
+[For RDS Files Click](https://github.com/MEF-BDA503/gpj18-r_coders/tree/master/Data_Sources_Rds)
 
 
 ***
 ## DATA PREPERATION AND ANALYSIS
 *** 
-**Data Preperation and Cleaning**
 
-**ANALSIS WITH R**
+[Data Preparation and Cleaning HTML File](Analysis_Codes_and_RMD_HTML/Data_Preparation.html)
 
-**RMD Files**
+[Analysis With R HTML File](Analysis_Codes_and_RMD_HTML/Explotary_Data_Analysis.html)
 
+[RMD Files](https://github.com/MEF-BDA503/gpj18-r_coders/tree/master/Analysis_Codes_and_RMD_HTML)
 
 
 ***
 ## DATA VISUALIZATION WITH R
 *** 
 ## SHINY ##
+
 [For Shiny Click](https://rcoders.shinyapps.io/shiny/)
+[For Shiny Web Page Click](http://127.0.0.1:5257/)
 
 ## PROJECT DOCUMENTATION
 *** 
 **PROJECT REPORT**
 
-[For Project Report in DOC Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Project%20Report%20and%20Presentation/Project_Report.docx)
+[For Project Report in DOC Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Analysis_Document/Project_Report.docx)
+
+[For Project Report in PDF Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Analysis_Document/Project_Report.pdf)
 
 **PROJECT PRESENTATION**
+
+[For Project Presentation Click](https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Analysis_Document/BIG_DATA_ESSENTIALS.pptx) 
 
 
 
@@ -121,7 +118,7 @@ FOCUS IMPORT AND EXPORT ISSUES WITH R DEDICATED AFFECTS OF INLATION, CURRENCY AN
 *** 
 **REFERENCES**
 
-[For References Clik](Analysis_Codes_and_RMD_HTML/References.html)
+[For References click](Analysis_Codes_and_RMD_HTML/References.html)
 
 
 **CITATIONS**
