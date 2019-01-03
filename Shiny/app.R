@@ -26,17 +26,15 @@ cols = c(4:15);
 import_data[,cols] = suppressWarnings(apply(import_data[,cols], 2, function(x) as.numeric(as.character(x))));
 str(import_data)
 
-print("Find Maximum Values")
-print("*******************")
 print(import_data %>% select(Sector_Name,January,February,March)) %>% mutate(VATotal = import_data$January + import_data$February + import_data$March) %>% filter(VATotal > 3000000)
-print("*******************")
+
 
 ## Print No Import Sectors
 import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% distinct()
-print("1--------1")
+
 print(import_data %>% select(Sector_Name) %>% mutate(VADiff = import_data$January + import_data$February + import_data$March ) %>% filter(is.na(VADiff)) %>% filter(!(is.na(Sector_Name))) %>% distinct())
-print("--------")
-##
+
+
 
 tmp<-tempfile(fileext=".xls")
 
@@ -45,8 +43,6 @@ download.file("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sou
 raw_data<-readxl::read_excel(tmp,skip=7,col_names=FALSE)
 
 file.remove(tmp)
-
-#raw_data<-readxl::read_excel("https://github.com/MEF-BDA503/gpj18-r_coders/blob/master/Data_Sources(Excel)/import_1996_2018.xls",skip=7,col_names=FALSE)
 
 colnames(raw_data) <- c("Year","Sector_Type_Code","Sector_Name",	"Total_Amount",	"January",	"February",	"March",	"April",	"May",	"June",	"July","August",	"September",	"October"	,"November","December")
 
@@ -292,15 +288,13 @@ Inflation_data
 US_Dollar_data
 imp_data_final
 exp_data_final
-Export_Import_union_sektor_data
 
 #a nes column type
 imp_data_final<- mutate(imp_data_final,Type="Import")
 exp_data_final<- mutate(exp_data_final,Type="Export")
-Export_Import_union_data <- rbind.fill(imp_data_final,exp_data_final)
-print.data.frame(Export_Import_union_sektor_data)
+#Export_Import_union_data <- rbind.fill(imp_data_final,exp_data_final)
+#print.data.frame(Export_Import_union_sektor_data)
 #change column name as amount
-Export_Total_Amount
 names(Export_Import_union_data)[names(Export_Import_union_data) == "Export_Total_Amount"] <- "Total_Amount"
 
 names(imp_data_final)[names(imp_data_final) == "Export_Total_Amount"] <- "Total_Amount"
@@ -315,13 +309,6 @@ names(exp_data_final)[names(exp_data_final) == "Date"] <- "datadate"
 names(Inflation_data)[names(Inflation_data) == "Consumer_Price_Index_Montly_Change_%"] <- "Consumer_Price_Index"
 
 names(Inflation_data)[names(Inflation_data) == "Consumer_Price_Index_Yearly_Change_%"] <- "Consumer_Price_Index_Yearly_Change"
-
-Export_Import_union_data
-
-imp_data_final
-exp_data_final
-str(Inflation_data)
-Inflation_data
 
 ## UI Part ##
 
@@ -344,66 +331,40 @@ ui <- navbarPage("R Coders",
                  ),
                  navbarMenu("Product Analysis",tabPanel("Export- Product",mainPanel(
                    tabsetPanel(
-                     tabPanel("Plot", plotOutput("distPlot"),h6("Episode IV", align = "center"),
-                              h4("Rebel spaceships, striking", align = "center"),
-                              h3("from a hidden base, have won", align = "center"))
+                     tabPanel("Plot", plotOutput("distPlot"))
                    )
                  )),
                  tabPanel("Import - Product",mainPanel(
                    tabsetPanel(
-                     tabPanel("Plot", plotOutput("distPlot_1"),h6("Episode IV", align = "center"),
-                              h4("Rebel spaceships, striking", align = "center"),
-                              h3("from a hidden base, have won", align = "center")),
+                     tabPanel("Plot", plotOutput("distPlot_1")),
                      tabPanel("Summary", verbatimTextOutput("selected_var"),verbatimTextOutput("summary")),
                      tabPanel("Table", tableOutput("table"))
                    )
                  ))
                  ),
-                           
-                 # tabPanel("Product Based Analysis",
-                 #          sidebarLayout(
-                 #            sidebarPanel("Import/Export",
-                 #                         checkboxInput("donum_a", "Export", value = T),
-                 #                         checkboxInput("donum_b", "Import", value = F)
-                 #              # sliderInput("Number",
-                 #              #             "Participants:",
-                 #              #             min = 2010,
-                 #              #             max = 2018,
-                 #              #             value = c(2015),sep ="",step=1),
-                 #              # 
-                 #              # selectInput("exp_data_v2$Sector_Name", label="Kırılımlar", choices = c("All",exp_data_v2$Sector_Name))
-                 #            ),
-                 #            mainPanel(
-                 #              tabsetPanel(
-                 #                tabPanel("Plot", plotOutput("distPlot"),h6("Episode IV", align = "center"),
-                 #                         h4("Rebel spaceships, striking", align = "center"),
-                 #                         h3("from a hidden base, have won", align = "center")),
-                 #                tabPanel("Summary", verbatimTextOutput("selected_var"),verbatimTextOutput("summary")),
-                 #                tabPanel("Table", tableOutput("table"))
-                 #              )
-                 #            ))),
                  tabPanel("Import/Export Change Over Time",mainPanel(tabsetPanel(tabPanel("Plot1",plotOutput("importExportPlot")),
                                                                                  tabPanel("Plot2",plotOutput("ExpoloratoryPlot"),
                                                                                  h4("The initial impact crops up in the import data as consumers' buying power contracts, bringing economic output down with it. Following the depreciation at time t, imports fall sharply and export volumes increase as local goods become more competitively priced than those denominated in stronger currencies",align = "center")),
                                                                                  tabPanel("Plot3",plotOutput("UsdRatePlot"))))),
-                 
                  navbarMenu("More",
-                            tabPanel("Export- Details",plotOutput("pieChart"),tags$div(class="header", checked=NA,
-                                                                                       list(
-                                                                                         tags$p("Ready to take the Shiny tutorial? If so"),
-                                                                                         tags$a(href="shiny.rstudio.com/tutorial", "Click Here!"),
-                                                                                         "Thank you",
-                                                                                         tags$li("1.eleman"),
-                                                                                         tags$li("2.eleman")
-                                                                                       ))),
-                            tabPanel("Import- Details",plotOutput("pieChart1"),tags$div(class="header", checked=NA,
-                                                                                        list(
-                                                                                          tags$p("Ready to take the Shiny tutorial? If so"),
-                                                                                          tags$a(href="shiny.rstudio.com/tutorial", "Click Here!"),
-                                                                                          "Thank you",
-                                                                                          tags$li("1.eleman"),
-                                                                                          tags$li("2.eleman")
-                                                                                        ))))
+                            tabPanel("Export- Details",plotOutput("pieChart"),
+                                                                                         # tags$div(class="header", checked=NA,
+                                                                                         # list(
+                                                                                         # tags$p("Ready to take the Shiny tutorial? If so"),
+                                                                                         # tags$a(href="shiny.rstudio.com/tutorial", "Click Here!"),
+                                                                                         # "Thank you",
+                                                                                         # tags$li("1.eleman"),
+                                                                                         # tags$li("2.eleman")
+                                                                                       )),
+                            tabPanel("Import- Details",plotOutput("pieChart1")
+                                                                                        # ,tags$div(class="header", checked=NA,
+                                                                                        # list(
+                                                                                        #   tags$p("Ready to take the Shiny tutorial? If so"),
+                                                                                        #   tags$a(href="shiny.rstudio.com/tutorial", "Click Here!"),
+                                                                                        #   "Thank you",
+                                                                                        #   tags$li("1.eleman"),
+                                                                                        #   tags$li("2.eleman")
+                                                                                        )
 )
 ## Server Part ##
 server <- function(input, output) {
@@ -415,29 +376,6 @@ server <- function(input, output) {
   output$distPlot_1 <- renderPlot({
     ggplot(exp_data_v2,aes(x=exp_data_v2$Sector_Type_Code,y=exp_data_v2$Total_Amount,color = exp_data_v2$Sector_Type_Code))+geom_point()+theme(axis.text.x = element_text(angle = 60, hjust = 1))
   })
-  
-  set.seed(600)
-  
-  # pt4 <- reactive({
-  #   if (!input$donum_a) return(NULL)
-  #   
-  #   qplot(Sector_Type_Code, Total_Amount, data=exp_data_v2, geom="area",fill=I("lightblue"),binwidth=0.2,main="Sector_Based",xlab="Sector_Code", ylab='Amount') 
-  # })
-  # 
-  # pt5 <- reactive({
-  #   if (!input$donum_b) return(NULL)
-  #   qplot(datadate, Total_Amount, data=imp_data_final, geom="area",fill=I("red"),binwidth=0.2,main="Export Trend By Time",xlab="Date", ylab='Amount') 
-  # })
-  # 
-  # output$distPlot = renderPlot({
-  #   ptlist <- list(pt4(),pt5())
-  #   # remove the null plots from ptlist and wtlist
-  #   to_delete <- !sapply(ptlist,is.null)
-  #   ptlist <- ptlist[to_delete]
-  #   if (length(ptlist)==0) return(NULL)
-  # 
-  #   grid.arrange(grobs=ptlist,ncol=length(ptlist))
-  # })
   
   output$importExportPlot <- renderPlot({
     ggplot(imp_and_exp_data_bymonth,
